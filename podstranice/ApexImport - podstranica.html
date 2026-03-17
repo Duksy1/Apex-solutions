@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apex Import | Advanced WordPress Import Plugin</title>
+    <title>Apex Import | Advanced WordPress CSV & XML Import Plugin</title>
+    <meta name="description" content="Import CSV and XML files into WordPress with a 4-step wizard, drag-and-drop mapping, duplicate detection, dry-run preview, and batch processing. Fully compatible with Apex Export.">
+    <meta name="keywords" content="WordPress import plugin, CSV import, XML import, data migration, batch import, duplicate detection, dry-run import, Apex Import">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Apex Solutions">
+    <link rel="canonical" href="https://apexsolutions.dev/apex-import">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Apex Import | Advanced WordPress Import Plugin">
+    <meta property="og:description" content="Import CSV and XML into WordPress with drag-and-drop mapping, dry-run preview, duplicate detection, and batch processing.">
+    <meta property="og:url" content="https://apexsolutions.dev/apex-import">
+    <meta property="og:site_name" content="Apex Solutions">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apex Import | Advanced WordPress Import Plugin">
+    <meta name="twitter:description" content="Import CSV and XML into WordPress with drag-and-drop mapping, dry-run preview, and batch processing.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Apex Import",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress",
+      "description": "Advanced WordPress import plugin for CSV and XML with 4-step wizard, drag-and-drop column mapping, duplicate detection, dry-run preview, and AJAX batch processing.",
+      "softwareVersion": "2.0",
+      "author": { "@type": "Organization", "name": "Apex Solutions" }
+    }
+    </script>
+
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Non-render-blocking Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></noscript>
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
@@ -354,19 +395,25 @@
             .nav-links.open { display: flex; }
             .header-cta { display: none; }
         }
+
+        /* --- RENDER PERFORMANCE --- */
+        .section-padding, .perf-section, .split-section, footer { content-visibility: auto; contain-intrinsic-size: auto 800px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="../apexsolutionsv2.html" class="logo"><i class="fa-solid fa-layer-group"></i> APEX SOLUTIONS</a>
+    <a href="../index.html" class="logo"><i class="fa-solid fa-layer-group"></i> APEX SOLUTIONS</a>
     <nav class="nav-links">
         <a href="ApexBooking%20-%20podstranica.html">Booking</a>
         <a href="ApexExport%20-%20podstranica.html">Export</a>
         <a href="ApexImport%20-%20podstranica.html">Import</a>
         <a href="ApexLicence%20-%20podstranica.html">Licence</a>
     </nav>
-    <a href="../apexsolutionsv2.html" class="btn-pill header-cta" style="padding: 10px 25px; font-size: 0.8rem;">GET ACCESS</a>
+    <a href="../index.html" class="btn-pill header-cta" style="padding: 10px 25px; font-size: 0.8rem;">GET ACCESS</a>
     <button class="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
 </header>
 
@@ -377,31 +424,31 @@
         <i class="fa-solid fa-link"></i> Fully compatible with Apex Export
     </span>
 
-    <h1>Import bez straha.<br><span>Dry-run prije promjene.</span></h1>
+    <h1>Import Without Fear.<br><span>Dry-Run Before Any Change.</span></h1>
 
     <p>
-        Uvezite CSV i XML u WordPress — postove, stranice, CPT-ove, korisnike, komentare i taxonomy.
-        Apex Import dolazi s <strong>4-step wizardom</strong>, drag-and-drop mapiranjem, <strong>duplicate detection</strong>,
-        <strong>dry-run preview</strong>, batch processingom i jasnom poviješću importa.
+        Import CSV and XML into WordPress — posts, pages, CPTs, users, comments, and taxonomies.
+        Apex Import comes with a <strong>4-step wizard</strong>, drag-and-drop mapping, <strong>duplicate detection</strong>,
+        <strong>dry-run preview</strong>, batch processing, and clear import history.
     </p>
 
     <div class="hero-actions">
-        <a class="btn-main btn-accent" href="#wizard"><i class="fa-solid fa-upload"></i> Pokreni New Import</a>
+        <a class="btn-main btn-accent" href="#wizard"><i class="fa-solid fa-upload"></i> Start New Import</a>
         <a class="btn-main btn-ghost" href="#features"><i class="fa-solid fa-table-columns"></i> Column Mapping</a>
     </div>
 
     <div class="hero-stats">
         <div class="stat-item">
             <span class="stat-val">CSV / XML</span>
-            <span class="stat-label">Podržani Formati</span>
+            <span class="stat-label">Supported Formats</span>
         </div>
         <div class="stat-item">
             <span class="stat-val">Dry-Run</span>
-            <span class="stat-label">Sigurna Provjera</span>
+            <span class="stat-label">Safe Preview</span>
         </div>
         <div class="stat-item">
             <span class="stat-val">Batch</span>
-            <span class="stat-label">Bez Timeouts</span>
+            <span class="stat-label">No Timeouts</span>
         </div>
         <div class="stat-item">
             <span class="stat-val">Round-trip</span>
@@ -412,37 +459,37 @@
 
 <section class="section-padding" id="features">
     <div style="margin-bottom: 70px; max-width: 860px;">
-        <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--bg-deep-green);">Sve što treba za pouzdan import</h2>
+<h2 style="font-size: 2.5rem; font-weight: 900; color: var(--bg-deep-green);">Everything You Need for Reliable Imports</h2>
         <p style="color: var(--text-grey); font-size: 1.1rem; margin-top: 15px;">
-            Idealno za migracije, masovne updateove, feedove i “round-trip” workflow s Apex Exportom.
+            Ideal for migrations, bulk updates, feeds, and "round-trip" workflows with Apex Export.
         </p>
     </div>
 
     <div class="grid-3">
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
-            <h3 class="card-title">Podržane Destinacije</h3>
+            <h3 class="card-title">Supported Destinations</h3>
             <p class="card-desc">
                 Posts & CPT, Users (create/update + meta + role), Comments (parent post matching),
-                Taxonomy Terms (categories/tags/custom taxonomies) uz hijerarhiju.
+                Taxonomy Terms (categories/tags/custom taxonomies) with hierarchy support.
             </p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-file-csv"></i></div>
-            <h3 class="card-title">Pametan CSV Parser</h3>
+<h3 class="card-title">Smart CSV Parser</h3>
             <p class="card-desc">
-                Auto-detect delimiter, UTF-8/BOM podrška i mogućnost konfiguracije encodinga.
-                Radi i s “čudnim” CSV-evima iz eksternih sustava.
+                Auto-detect delimiter, UTF-8/BOM support, and configurable encoding.
+                Works even with "quirky" CSVs from external systems.
             </p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-code"></i></div>
-            <h3 class="card-title">Fleksibilan XML</h3>
+            <h3 class="card-title">Flexible XML</h3>
             <p class="card-desc">
-                Parsira nested strukture s automatskom detekcijom nodeova,
-                što olakšava import iz raznih XML shema.
+                Parses nested structures with automatic node detection,
+                making it easy to import from various XML schemas.
             </p>
         </div>
 
@@ -450,8 +497,8 @@
             <div class="card-icon"><i class="fa-solid fa-table-columns"></i></div>
             <h3 class="card-title">Drag & Drop Mapping</h3>
             <p class="card-desc">
-                Povuci stupce iz filea na WordPress polja.
-                Auto-match po nazivu pokrije većinu slučajeva odmah.
+                Drag file columns onto WordPress fields.
+                Auto-match by name covers most cases instantly.
             </p>
         </div>
 
@@ -459,8 +506,8 @@
             <div class="card-icon"><i class="fa-solid fa-copy"></i></div>
             <h3 class="card-title">Duplicate Detection</h3>
             <p class="card-desc">
-                Skip ili Update postojećih zapisa, uz “match by” polje:
-                ID, slug, title, email, SKU i slično.
+                Skip or Update existing records, with a "match by" field:
+                ID, slug, title, email, SKU, and more.
             </p>
         </div>
 
@@ -468,8 +515,8 @@
             <div class="card-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
             <h3 class="card-title">Import History</h3>
             <p class="card-desc">
-                Log svakog importa: naziv filea, destinacija, datum, broj zapisa i status.
-                Sprema se u tablicu <strong>apex_import_history</strong>.
+                Log of every import: file name, destination, date, record count, and status.
+                Stored in the <strong>apex_import_history</strong> table.
             </p>
         </div>
     </div>
@@ -488,7 +535,7 @@
                     <div class="dropzone">
                         <div>
                             <strong>Upload CSV/XML</strong>
-                            <span>Drag & drop ili klik za upload · preview prvih redova odmah</span>
+                            <span>Drag & drop or click to upload · preview first rows instantly</span>
                         </div>
                         <span class="pill"><i class="fa-solid fa-file"></i> csv/xml</span>
                     </div>
@@ -499,7 +546,7 @@
                                 <div class="step-num">1</div>
                                 <div>
                                     <div class="step-title">Upload File</div>
-                                    <div class="step-sub">Preview prvih redova</div>
+                                    <div class="step-sub">Preview first rows</div>
                                 </div>
                             </div>
                             <div class="step-right"><i class="fa-solid fa-arrow-up-from-bracket"></i></div>
@@ -556,23 +603,23 @@
         </div>
 
         <div class="split-text">
-            <h2>Uvoz koji je kontroliran i predvidljiv</h2>
+            <h2>Controlled and Predictable Import</h2>
             <p>
-                Apex Import je fokusiran na sigurnost i jasnoću: prvo vidiš preview, zatim mapiraš stupce,
-                uključiš <strong>Dry-Run</strong> i tek onda potvrđuješ promjene.
-                Sve radi u chunkovima (AJAX batch) pa nema timeouts ni na tisućama redova.
+                Apex Import is focused on safety and clarity: first you see a preview, then map columns,
+                enable <strong>Dry-Run</strong>, and only then confirm changes.
+                Everything runs in chunks (AJAX batch) so there are no timeouts even with thousands of rows.
             </p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> Auto-match po nazivu (brže mapiranje)</li>
-                <li><i class="fa-solid fa-check"></i> Dry-run prikazuje created/updated/skipped/errors</li>
+                <li><i class="fa-solid fa-check"></i> Auto-match by name (faster mapping)</li>
+                <li><i class="fa-solid fa-check"></i> Dry-run shows created/updated/skipped/errors</li>
                 <li><i class="fa-solid fa-check"></i> Real-time progress bar + counter</li>
-                <li><i class="fa-solid fa-check"></i> Kompatibilno s fileovima iz Apex Exporta (round-trip)</li>
+                <li><i class="fa-solid fa-check"></i> Compatible with Apex Export files (round-trip)</li>
             </ul>
 
             <div style="margin-top: 28px; display:flex; gap: 12px; flex-wrap: wrap;">
                 <a class="btn-main btn-accent" href="#duplicates"><i class="fa-solid fa-copy"></i> Duplicate Handling</a>
-                <a class="btn-main" href="#performance"><i class="fa-solid fa-shield-halved"></i> Stabilnost</a>
+                <a class="btn-main" href="#performance"><i class="fa-solid fa-shield-halved"></i> Stability</a>
             </div>
         </div>
     </div>
@@ -581,17 +628,17 @@
 <section class="section-padding" id="duplicates">
     <div class="split-section">
         <div class="split-text">
-            <h2>Duplikati: Skip ili Update</h2>
+<h2>Duplicates: Skip or Update</h2>
             <p>
-                Duplicate detection je ključan za “feed” import i masovne updateove.
-                Odaberi polje za prepoznavanje (match by) i pravilo: preskoči ili ažuriraj postojeće zapise.
+                Duplicate detection is crucial for "feed" imports and bulk updates.
+                Choose a match-by field and the rule: skip or update existing records.
             </p>
 
             <ul class="feature-list">
                 <li><i class="fa-solid fa-check"></i> Match by: ID, slug, title, email, SKU…</li>
-                <li><i class="fa-solid fa-check"></i> Skip — ignorira postojeće zapise</li>
-                <li><i class="fa-solid fa-check"></i> Update — prepisuje postojeće s novim podacima</li>
-                <li><i class="fa-solid fa-check"></i> Filter hook za custom duplicate logiku</li>
+                <li><i class="fa-solid fa-check"></i> Skip — ignores existing records</li>
+                <li><i class="fa-solid fa-check"></i> Update — overwrites existing with new data</li>
+                <li><i class="fa-solid fa-check"></i> Filter hook for custom duplicate logic</li>
             </ul>
         </div>
 
@@ -637,7 +684,7 @@
                 </div>
 
                 <div style="margin-top: 16px; text-align:center; font-weight:900; color: var(--text-grey); font-size: 0.95rem;">
-                    “Dry-run first” workflow za sigurnu produkciju.
+                    "Dry-run first" workflow for safe production.
                 </div>
             </div>
         </div>
@@ -646,10 +693,10 @@
 
 <section class="perf-section" id="performance">
     <div style="text-align: center; margin-bottom: 50px; position: relative; z-index: 2;">
-        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 15px;">Stabilnost na velikim importima</h2>
+        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 15px;">Stability on Large Imports</h2>
         <p style="opacity: 0.85; max-width: 780px; margin: 0 auto; line-height: 1.7;">
-            Import je chunked i AJAX-powered: bez timeouts, s kontrolom batch sizea i jasnom statistikom rezultata.
-            Idealno za migracije i kontinuirane feedove.
+            Import is chunked and AJAX-powered: no timeouts, with batch size control and clear result statistics.
+            Ideal for migrations and continuous feeds.
         </p>
     </div>
 
@@ -657,31 +704,31 @@
         <div class="perf-card">
             <i class="fa-solid fa-layer-group perf-icon"></i>
             <div class="perf-title">Batch Processing</div>
-            <div class="perf-desc">Tisuće redova bez rušenja — obrada u chunkovima s podesivim batch sizeom.</div>
+            <div class="perf-desc">Thousands of rows without crashes — processed in chunks with adjustable batch size.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-vial perf-icon"></i>
             <div class="perf-title">Dry-Run Preview</div>
-            <div class="perf-desc">Točno vidiš što će se dogoditi: created / updated / skipped / errors — bez promjene podataka.</div>
+            <div class="perf-desc">See exactly what will happen: created / updated / skipped / errors — without changing any data.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-table-columns perf-icon"></i>
             <div class="perf-title">Auto-Matching</div>
-            <div class="perf-desc">Automatsko prepoznavanje kolona i mapiranje po nazivu ubrzava setup importa.</div>
+            <div class="perf-desc">Automatic column recognition and name-based mapping speeds up import setup.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-clock-rotate-left perf-icon"></i>
             <div class="perf-title">Import History</div>
-            <div class="perf-desc">Jasan log: file name, destination, date, processed, status. Tablica: apex_import_history.</div>
+            <div class="perf-desc">Clear log: file name, destination, date, processed, status. Table: apex_import_history.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-layer-group perf-icon"></i>
             <div class="perf-title">Saved Templates</div>
-            <div class="perf-desc">Spremi mapping konfiguracije za ponavljajuće import feedove. CPT: apex_import_tpl.</div>
+            <div class="perf-desc">Save mapping configurations for recurring import feeds. CPT: apex_import_tpl.</div>
         </div>
 
         <div class="perf-card">
@@ -695,16 +742,16 @@
 <section class="section-padding" id="requirements">
     <div class="split-section" style="margin-bottom: 0;">
         <div class="split-text">
-            <h2>Zahtjevi i kompatibilnost</h2>
+            <h2>Requirements and Compatibility</h2>
             <p>
-                Apex Import radi standalone (Apex Export nije potreban), ali Export datoteke su automatski prepoznate za seamless mapping.
-                WooCommerce je opcionalan (bitan samo za product/order import).
+                Apex Import works standalone (Apex Export is not required), but Export files are automatically recognized for seamless mapping.
+                WooCommerce is optional (only needed for product/order imports).
             </p>
 
             <ul class="feature-list">
                 <li><i class="fa-solid fa-check"></i> WordPress 5.8+</li>
                 <li><i class="fa-solid fa-check"></i> PHP 7.4+</li>
-                <li><i class="fa-solid fa-check"></i> WooCommerce 3.0+ (opcijski)</li>
+                <li><i class="fa-solid fa-check"></i> WooCommerce 3.0+ (optional)</li>
             </ul>
         </div>
 
@@ -742,14 +789,14 @@
 </section>
 
 <section class="cta-box">
-    <h2>Spremni uvesti podatke bez rizika?</h2>
+    <h2>Ready to Import Data Without Risk?</h2>
     <p>
-        Uploadaj file, mapiraj kolone, uključi Dry-Run i importaj u batch-evima bez timeouts.
-        Ako trebaš export iz WordPressa — Apex Export je kompatibilni companion za kompletan round-trip workflow.
+        Upload a file, map columns, enable Dry-Run, and import in batches without timeouts.
+        If you need to export from WordPress — Apex Export is the compatible companion for a complete round-trip workflow.
     </p>
     <div style="display:flex; gap: 14px; justify-content:center; flex-wrap: wrap;">
-        <a class="btn-main btn-accent" href="#"><i class="fa-solid fa-file-import"></i> Preuzmi Apex Import</a>
-        <a class="btn-main" href="ApexExport%20-%20podstranica.html"><i class="fa-solid fa-file-export"></i> Pogledaj Apex Export</a>
+        <a class="btn-main btn-accent" href="#"><i class="fa-solid fa-file-import"></i> Get Apex Import</a>
+        <a class="btn-main" href="ApexExport%20-%20podstranica.html"><i class="fa-solid fa-file-export"></i> View Apex Export</a>
     </div>
 
     <div style="margin-top: 26px; opacity: 0.7; font-weight: 800;">
@@ -761,7 +808,7 @@
     <div style="max-width: 1400px; margin: 0 auto;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; margin-bottom: 30px;">
             <div>
-                <a href="../apexsolutionsv2.html" style="font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: white;"><i class="fa-solid fa-layer-group" style="color: var(--accent-green);"></i> APEX SOLUTIONS</a>
+                <a href="../index.html" style="font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: white;"><i class="fa-solid fa-layer-group" style="color: var(--accent-green);"></i> APEX SOLUTIONS</a>
                 <p style="opacity: 0.7; font-size: 0.9rem; max-width: 300px;">Empowering WordPress developers with professional-grade tools.</p>
             </div>
             <div>
@@ -774,7 +821,7 @@
                 </ul>
             </div>
         </div>
-        <div style="text-align: center; opacity: 0.5; font-size: 0.85rem;">&copy; 2026 Apex Solutions. Sva prava pridržana.</div>
+        <div style="text-align: center; opacity: 0.5; font-size: 0.85rem;">&copy; 2026 Apex Solutions. All rights reserved.</div>
     </div>
 </footer>
 

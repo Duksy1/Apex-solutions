@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ApexBooking | Premium Booking System</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Apex Booking | Premium WordPress Booking & Scheduling Plugin</title>
+    <meta name="description" content="Full-featured WordPress booking plugin with real-time AJAX availability, peak pricing, check-in dashboard, party invitations, and WooCommerce Block Checkout support.">
+    <meta name="keywords" content="WordPress booking plugin, WooCommerce booking, appointment scheduling, check-in dashboard, party invitations, peak pricing, Apex Booking">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Apex Solutions">
+    <link rel="canonical" href="https://apexsolutions.dev/apex-booking">
+
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Apex Booking | Premium WordPress Booking Plugin">
+    <meta property="og:description" content="Full booking engine with check-in dashboard, party invitations & peak pricing. Built for WooCommerce 7.0+ with Block Checkout support.">
+    <meta property="og:url" content="https://apexsolutions.dev/apex-booking">
+    <meta property="og:site_name" content="Apex Solutions">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apex Booking | Premium WordPress Booking Plugin">
+    <meta name="twitter:description" content="Full booking engine with check-in dashboard, party invitations & peak pricing for WooCommerce.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Apex Booking",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "WordPress",
+      "description": "Full-featured WordPress booking system with real-time AJAX availability, peak pricing, check-in dashboard, party invitations, and WooCommerce Block Checkout support.",
+      "softwareVersion": "3.1.0",
+      "author": { "@type": "Organization", "name": "Apex Solutions" }
+    }
+    </script>
+
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Non-render-blocking Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></noscript>
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         /* --- CORE VARIABLES --- */
@@ -215,47 +257,53 @@
             .nav-links.open { display: flex; }
             .header-cta { display: none; }
         }
+
+        /* --- RENDER PERFORMANCE --- */
+        .section-padding, .perf-section, .split-section, footer { content-visibility: auto; contain-intrinsic-size: auto 800px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="../apexsolutionsv2.html" class="logo"><i class="fa-solid fa-layer-group"></i> APEX SOLUTIONS</a>
+        <a href="../index.html" class="logo"><i class="fa-solid fa-layer-group"></i> APEX SOLUTIONS</a>
         <nav class="nav-links">
             <a href="ApexBooking%20-%20podstranica.html">Booking</a>
             <a href="ApexExport%20-%20podstranica.html">Export</a>
             <a href="ApexImport%20-%20podstranica.html">Import</a>
             <a href="ApexLicence%20-%20podstranica.html">Licence</a>
         </nav>
-        <a href="../apexsolutionsv2.html" class="btn-pill header-cta" style="padding: 10px 25px; font-size: 0.8rem;">GET ACCESS</a>
+        <a href="../index.html" class="btn-pill header-cta" style="padding: 10px 25px; font-size: 0.8rem;">GET ACCESS</a>
         <button class="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
     </header>
 
     <section class="product-hero">
         <div class="hero-glow"></div>
-        <span class="badge-pill"><i class="fa-solid fa-calendar-check"></i> Verzija 3.1.0 Stabilna</span>
-        <h1>Zakazivanje bez greške.<br><span>Rast bez limita.</span></h1>
+        <span class="badge-pill"><i class="fa-solid fa-calendar-check"></i> Version 3.1.0 Stable</span>
+        <h1>Flawless Scheduling.<br><span>Unlimited Growth.</span></h1>
         <p>
-            Kompletan sustav za upravljanje terminima, događajima i check-inom. 
-            Automatizirajte rezervacije, upravljajte dolascima gostiju, šaljite pozivnice i povećajte prihode dinamičkim cijenama — sve uz potpunu WooCommerce integraciju.
+            A complete system for managing appointments, events, and check-ins. 
+            Automate reservations, manage guest arrivals, send invitations, and boost revenue with dynamic pricing — all with full WooCommerce integration.
         </p>
         <div class="hero-actions">
-            <a class="btn-main btn-accent" href="#features"><i class="fa-solid fa-rocket"></i> Isprobaj Demo</a>
-            <a class="btn-main btn-ghost" href="#performance"><i class="fa-solid fa-bolt"></i> Tehnički Detalji</a>
+            <a class="btn-main btn-accent" href="#features"><i class="fa-solid fa-rocket"></i> Try Demo</a>
+            <a class="btn-main btn-ghost" href="#performance"><i class="fa-solid fa-bolt"></i> Technical Details</a>
         </div>
 
         <div class="hero-stats">
             <div class="stat-item">
                 <span class="stat-val">Instant</span>
-                <span class="stat-label">Provjera Termina</span>
+                <span class="stat-label">Slot Availability</span>
             </div>
             <div class="stat-item">
-                <span class="stat-val">4 Teme</span>
-                <span class="stat-label">Vizualni Dizajn</span>
+                <span class="stat-val">4 Themes</span>
+                <span class="stat-label">Visual Design</span>
             </div>
             <div class="stat-item">
                 <span class="stat-val">100%</span>
-                <span class="stat-label">Sigurnost Podataka</span>
+                <span class="stat-label">Data Security</span>
             </div>
             <div class="stat-item">
                 <span class="stat-val">WooCommerce</span>
@@ -266,63 +314,63 @@
 
     <section class="section-padding" id="features">
         <div style="margin-bottom: 70px; max-width: 700px;">
-            <h2 style="font-size: 2.5rem; font-weight: 800; color: var(--bg-deep-green);">Sve što vašem poslovanju treba</h2>
-            <p style="color: var(--text-grey); font-size: 1.1rem; margin-top: 15px;">Dizajnirano za moderne uslužne djelatnosti koje zahtijevaju pouzdanost i fleksibilnost.</p>
+            <h2 style="font-size: 2.5rem; font-weight: 800; color: var(--bg-deep-green);">Everything Your Business Needs</h2>
+            <p style="color: var(--text-grey); font-size: 1.1rem; margin-top: 15px;">Designed for modern service businesses that demand reliability and flexibility.</p>
         </div>
 
         <div class="grid-3">
             <div class="feature-card">
                 <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
-                <h3 class="card-title">Pametno Rezerviranje</h3>
-                <p class="card-desc">Sustav privremeno "zaključava" termin dok kupac ne završi plaćanje. Hold sustav s konfigurabilnim trajanjem sprječava dvostruke rezervacije i preklapanja.</p>
+                <h3 class="card-title">Smart Reservations</h3>
+                <p class="card-desc">The system temporarily "locks" a time slot while the customer completes payment. A configurable hold system prevents double bookings and overlaps.</p>
             </div>
 
             <div class="feature-card">
                 <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-                <h3 class="card-title">Dinamičke Cijene</h3>
-                <p class="card-desc">Kumulativni nadoplati za vikende, petke i večernje termine. Automatsko podešavanje cijena bez ručnog rada — povećajte profitabilnost na autopilotu.</p>
+                <h3 class="card-title">Dynamic Pricing</h3>
+                <p class="card-desc">Cumulative surcharges for weekends, Fridays, and evening time slots. Automatic price adjustments without manual work — boost profitability on autopilot.</p>
             </div>
 
             <div class="feature-card">
                 <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
-                <h3 class="card-title">Dijeljeni Kapaciteti</h3>
-                <p class="card-desc">BFS graf traversal povezuje više usluga u zajednički kapacitetni pool. Rezervacija jedne usluge automatski ažurira dostupnost svih povezanih.</p>
+                <h3 class="card-title">Shared Capacity Pools</h3>
+                <p class="card-desc">BFS graph traversal connects multiple services into a shared capacity pool. Booking one service automatically updates availability across all linked services.</p>
             </div>
 
             <div class="feature-card">
                 <div class="card-icon"><i class="fa-solid fa-users"></i></div>
-                <h3 class="card-title">Grupne Rezervacije</h3>
-                <p class="card-desc">Definirajte bazni broj osoba, cijenu po dodatnoj osobi i maksimum. Sustav automatski računa ukupnu cijenu i prikazuje detaljan pregled na košarici.</p>
+                <h3 class="card-title">Group Bookings</h3>
+                <p class="card-desc">Define a base number of people, price per extra person, and maximum capacity. The system automatically calculates the total price and displays a detailed breakdown in the cart.</p>
             </div>
 
             <div class="feature-card">
                 <div class="card-icon"><i class="fa-solid fa-cart-plus"></i></div>
-                <h3 class="card-title">Dodatna Prodaja</h3>
-                <p class="card-desc">Add-oni s opcionalnim količinama, uređivanje direktno iz košarice putem modala. Kupci mogu mijenjati dodatke bez ponovnog prolaska kroz formu.</p>
+                <h3 class="card-title">Upsell Add-ons</h3>
+                <p class="card-desc">Add-ons with optional quantities, editable directly from the cart via modal. Customers can modify extras without going through the form again.</p>
             </div>
 
             <div class="feature-card">
                 <div class="card-icon"><i class="fa-regular fa-envelope"></i></div>
-                <h3 class="card-title">Auto-Komunikacija</h3>
-                <p class="card-desc">Podsjetnike (24h/48h/7d prije) i zahvale (1/3/7 dana nakon). Prilagodljivi predlošci s placeholderima. Review emailovi za check-in goste.</p>
+                <h3 class="card-title">Auto-Communication</h3>
+                <p class="card-desc">Reminders (24h/48h/7d before) and follow-ups (1/3/7 days after). Customizable templates with placeholders. Review emails for checked-in guests.</p>
             </div>
 
             <div class="feature-card">
                 <div class="card-icon"><i class="fa-solid fa-phone"></i></div>
-                <h3 class="card-title">Admin Rezervacije</h3>
-                <p class="card-desc">Manualno kreiranje rezervacija za telefonske i walk-in goste. Četiri sekcije: kupac, usluga, dodaci i live pregled cijene s WooCommerce narudžbom.</p>
+                <h3 class="card-title">Admin Bookings</h3>
+                <p class="card-desc">Manually create bookings for phone and walk-in guests. Four sections: customer, service, add-ons, and live price preview with WooCommerce order generation.</p>
             </div>
 
             <div class="feature-card">
                 <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
-                <h3 class="card-title">4 Vizualne Teme</h3>
-                <p class="card-desc">Classic, Dark, Minimal i Vibrant — odaberite stil forme koji odgovara vašem brendu. Promjena teme s live previewom u admin postavkama.</p>
+                <h3 class="card-title">4 Visual Themes</h3>
+                <p class="card-desc">Classic, Dark, Minimal, and Vibrant — choose the form style that matches your brand. Switch themes with live preview in admin settings.</p>
             </div>
 
             <div class="feature-card">
                 <div class="card-icon"><i class="fa-solid fa-calendar-days"></i></div>
-                <h3 class="card-title">Admin Kalendar</h3>
-                <p class="card-desc">Mjesec, tjedan, dan i lista prikaz. Filtriranje po usluzi, pretraga kupaca po imenu ili emailu. Rezervacije kodirane bojama za svaku uslugu.</p>
+                <h3 class="card-title">Admin Calendar</h3>
+                <p class="card-desc">Month, week, day, and list views. Filter by service, search customers by name or email. Color-coded bookings for each service.</p>
             </div>
         </div>
     </section>
@@ -332,19 +380,19 @@
             <div class="visual-box" style="background: #1a3c34;">
                 <div style="text-align: center; color: white;">
                     <i class="fa-solid fa-paper-plane" style="font-size: 5rem; margin-bottom: 30px; color: var(--accent-green);"></i>
-                    <h3 style="font-size: 1.5rem;">Viralni Marketing</h3>
-                    <p style="opacity: 0.7; margin-top: 10px;">5 HTML dizajna pozivnica</p>
+                    <h3 style="font-size: 1.5rem;">Viral Marketing</h3>
+                    <p style="opacity: 0.7; margin-top: 10px;">5 HTML invitation designs</p>
                 </div>
             </div>
             <div class="split-text">
-                <h2>Pretvorite Kupce u Promotore</h2>
-                <p>Nakon kupnje, klijenti šalju brendirane digitalne pozivnice gostima direktno kroz My Account → Orders. Ime slavljenika, dob, poruka, lokacija i dizajn — sve personalizirano. Podaci se zapisuju u bazu, a ponovni pozivi su podržani.</p>
+                <h2>Turn Customers Into Promoters</h2>
+                <p>After purchase, clients send branded digital invitations to guests directly through My Account → Orders. Birthday name, age, message, location, and design — all personalized. Data is stored in the database, and resending is supported.</p>
                 <ul class="feature-list">
-                    <li><i class="fa-solid fa-check"></i> 5 dizajna: Confetti, Neon, Balloon, Elegant Gold, Rockstar</li>
-                    <li><i class="fa-solid fa-check"></i> Individualni HTML emailovi svakom gostu</li>
-                    <li><i class="fa-solid fa-check"></i> Broj gostiju ograničen kapacitetom usluge</li>
-                    <li><i class="fa-solid fa-check"></i> Admin pregled svih pozivnica s ukupnom statistikom</li>
-                    <li><i class="fa-solid fa-check"></i> Resend podrška — ažurira postojeći zapis</li>
+                    <li><i class="fa-solid fa-check"></i> 5 designs: Confetti, Neon, Balloon, Elegant Gold, Rockstar</li>
+                    <li><i class="fa-solid fa-check"></i> Individual HTML emails to each guest</li>
+                    <li><i class="fa-solid fa-check"></i> Guest count limited by service capacity</li>
+                    <li><i class="fa-solid fa-check"></i> Admin overview of all invitations with total statistics</li>
+                    <li><i class="fa-solid fa-check"></i> Resend support — updates existing record</li>
                 </ul>
             </div>
         </div>
@@ -353,14 +401,14 @@
     <section class="section-padding">
         <div class="split-section">
             <div class="split-text">
-                <h2>Recepcija bez Stresa</h2>
-                <p>Check-in dashboard s 6 statistika, navigacijom po datumu, filterom usluga i live pretragom (300ms debounce). Upravljajte dolascima, gostima i review emailovima — sve u stvarnom vremenu s auto-refreshom svakih 30 sekundi.</p>
+                <h2>Stress-Free Reception</h2>
+                <p>Check-in dashboard with 6 statistics, date navigation, service filter, and live search (300ms debounce). Manage arrivals, guests, and review emails — all in real time with 30-second auto-refresh.</p>
                 <ul class="feature-list">
-                    <li><i class="fa-solid fa-check"></i> Check In / No Show / Undo za svaku rezervaciju</li>
-                    <li><i class="fa-solid fa-check"></i> Guest lista: dodavanje, individualni status, bulk akcije</li>
-                    <li><i class="fa-solid fa-check"></i> Review emailovi jednim klikom za checked-in goste</li>
-                    <li><i class="fa-solid fa-check"></i> 6 stat kartica: ukupno, checked in, waiting, no show, %, gosti</li>
-                    <li><i class="fa-solid fa-check"></i> Sve akcije logirane kao WooCommerce order notes</li>
+                    <li><i class="fa-solid fa-check"></i> Check In / No Show / Undo for each booking</li>
+                    <li><i class="fa-solid fa-check"></i> Guest list: add guests, individual status, bulk actions</li>
+                    <li><i class="fa-solid fa-check"></i> One-click review emails for checked-in guests</li>
+                    <li><i class="fa-solid fa-check"></i> 6 stat cards: total, checked in, waiting, no show, %, guests</li>
+                    <li><i class="fa-solid fa-check"></i> All actions logged as WooCommerce order notes</li>
                 </ul>
             </div>
             <div class="visual-box">
@@ -369,12 +417,12 @@
                         <span style="font-weight: 800; color: #1a3c34;">Ivan Horvat</span>
                         <span style="color: green; font-weight: 700;">14:00</span>
                     </div>
-                    <div style="color: #666; margin-bottom: 10px;">Rođendanska Proslava · <span style="color: #7c3aed; font-weight: 600;">Bowling</span> · 8 osoba</div>
+                    <div style="color: #666; margin-bottom: 10px;">Birthday Party · <span style="color: #7c3aed; font-weight: 600;">Bowling</span> · 8 people</div>
                     <div style="display: flex; gap: 10px; margin-bottom: 15px;">
                         <span style="background: var(--bg-deep-green); color: white; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">Check In</span>
                         <span style="background: #fee2e2; color: #dc2626; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">No Show</span>
                     </div>
-                    <div style="font-size: 0.8rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 10px;">👥 Gosti: 5/8 prijavljeno · <span style="color: var(--accent-green); font-weight: 600;">⭐ Review poslan</span></div>
+                    <div style="font-size: 0.8rem; color: #999; border-top: 1px solid #f0f0f0; padding-top: 10px;">👥 Gosti: 5/8 registered · <span style="color: var(--accent-green); font-weight: 600;">⭐ Review sent</span></div>
                 </div>
             </div>
         </div>
@@ -382,58 +430,58 @@
 
     <section class="perf-section" id="performance">
         <div style="text-align: center; margin-bottom: 50px; position: relative; z-index: 2;">
-            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 15px;">Stabilnost na koju se možete osloniti</h2>
-            <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">Vaš posao ne staje, pa ne smije ni vaš sustav. ApexBooking je optimiziran za maksimalnu brzinu i sigurnost.</p>
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 15px;">Reliability You Can Count On</h2>
+            <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">Your business never stops, and neither should your system. ApexBooking is optimized for maximum speed and security.</p>
         </div>
 
         <div class="perf-grid">
             <div class="perf-card">
                 <i class="fa-solid fa-bolt perf-icon"></i>
-                <div class="perf-title">AJAX Provjera Termina</div>
-                <div class="perf-desc">Real-time provjera dostupnosti s duration-based blokingom. Klijenti odmah vide slobodne termine bez osvježavanja stranice.</div>
+                <div class="perf-title">AJAX Slot Check</div>
+                <div class="perf-desc">Real-time availability checking with duration-based blocking. Customers instantly see open slots without refreshing the page.</div>
             </div>
             
             <div class="perf-card">
                 <i class="fa-solid fa-shield-halved perf-icon"></i>
-                <div class="perf-title">Potpuna Sigurnost</div>
-                <div class="perf-desc">Nonce verifikacija na svim AJAX endpointima, capability provjere, sanitizacija inputa, escaping outputa. Hold sustav koristi IP + user ID za zaštitu.</div>
+                <div class="perf-title">Full Security</div>
+                <div class="perf-desc">Nonce verification on all AJAX endpoints, capability checks, input sanitization, output escaping. Hold system uses IP + user ID for protection.</div>
             </div>
             
             <div class="perf-card">
                 <i class="fa-solid fa-cubes perf-icon"></i>
                 <div class="perf-title">Block Checkout</div>
-                <div class="perf-desc">Potpuna kompatibilnost s WooCommerce block-based cart i checkout. Custom prikaz imena i slika rezervacija u Store API.</div>
+                <div class="perf-desc">Full compatibility with WooCommerce block-based cart and checkout. Custom booking name and image display in Store API.</div>
             </div>
 
             <div class="perf-card">
                 <i class="fa-solid fa-code perf-icon"></i>
                 <div class="perf-title">WordPress 5.8+ & PHP 7.4+</div>
-                <div class="perf-desc">Singleton arhitektura, WP-Cron automatizacija, dbDelta migracije. Kompatibilan s WooCommerce 7.0+ i modernim PHP standardima.</div>
+                <div class="perf-desc">Singleton architecture, WP-Cron automation, dbDelta migrations. Compatible with WooCommerce 7.0+ and modern PHP standards.</div>
             </div>
 
             <div class="perf-card">
                 <i class="fa-solid fa-file-csv perf-icon"></i>
-                <div class="perf-title">CSV Export & Povijest</div>
-                <div class="perf-desc">Filtrirajte rezervacije po usluzi, statusu narudžbe i datumu. Pregledajte ukupni prihod i broj bookinga. Izvezite sve u CSV jednim klikom.</div>
+                <div class="perf-title">CSV Export & History</div>
+                <div class="perf-desc">Filter bookings by service, order status, and date. View total revenue and booking count. Export everything to CSV with one click.</div>
             </div>
 
             <div class="perf-card">
                 <i class="fa-solid fa-puzzle-piece perf-icon"></i>
                 <div class="perf-title">Per-Service Shortcodes</div>
-                <div class="perf-desc">[apexbooking_form service="42"] za pojedinačne usluge, [apexbooking_history] za kupce, [apexbooking_invitations] za pozivnice. Potpuna fleksibilnost.</div>
+                <div class="perf-desc">[apexbooking_form service="42"] for individual services, [apexbooking_history] for customers, [apexbooking_invitations] for invitations. Full flexibility.</div>
             </div>
         </div>
     </section>
 
     <section class="cta-box">
-        <h2>Spremni automatizirati svoje poslovanje?</h2>
+        <h2>Ready to Automate Your Business?</h2>
         <p>
-            Postavite usluge, definirajte raspored i cijene, puštajte sustav da radi za vas.
-            Automatizirane rezervacije, check-in i pozivnice — sve u jednom pluginu.
+            Set up services, define schedules and pricing, and let the system work for you.
+            Automated bookings, check-ins, and invitations — all in one plugin.
         </p>
         <div style="display:flex; gap: 14px; justify-content:center; flex-wrap: wrap;">
-            <a class="btn-main btn-accent" href="#"><i class="fa-solid fa-rocket"></i> Započni s ApexBookingom</a>
-            <a class="btn-main" href="../apexsolutionsv2.html"><i class="fa-solid fa-layer-group"></i> Svi Proizvodi</a>
+            <a class="btn-main btn-accent" href="#"><i class="fa-solid fa-rocket"></i> Get Started with ApexBooking</a>
+            <a class="btn-main" href="../index.html"><i class="fa-solid fa-layer-group"></i> All Products</a>
         </div>
     </section>
 
@@ -441,7 +489,7 @@
         <div style="max-width: 1400px; margin: 0 auto;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; margin-bottom: 30px;">
                 <div>
-                    <a href="../apexsolutionsv2.html" style="font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: white;"><i class="fa-solid fa-layer-group" style="color: var(--accent-green);"></i> APEX SOLUTIONS</a>
+                    <a href="../index.html" style="font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: white;"><i class="fa-solid fa-layer-group" style="color: var(--accent-green);"></i> APEX SOLUTIONS</a>
                     <p style="opacity: 0.7; font-size: 0.9rem; max-width: 300px;">Empowering WordPress developers with professional-grade tools.</p>
                 </div>
                 <div>
@@ -454,7 +502,7 @@
                     </ul>
                 </div>
             </div>
-            <div style="text-align: center; opacity: 0.5; font-size: 0.85rem;">&copy; 2026 Apex Solutions. Sva prava pridržana.</div>
+            <div style="text-align: center; opacity: 0.5; font-size: 0.85rem;">&copy; 2026 Apex Solutions. All rights reserved.</div>
         </div>
     </footer>
 

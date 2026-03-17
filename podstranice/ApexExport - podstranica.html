@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apex Export | Advanced WordPress Export Plugin</title>
+    <title>Apex Export | Advanced WordPress Data Export Plugin — CSV & XML</title>
+    <meta name="description" content="Export any WordPress data to CSV or XML. 5-step visual wizard with drag-and-drop field mapping, advanced filters, WP-Cron scheduling, and full WooCommerce support.">
+    <meta name="keywords" content="WordPress export plugin, CSV export, XML export, WooCommerce export, data migration, WP-Cron scheduling, WordPress data export, Apex Export">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Apex Solutions">
+    <link rel="canonical" href="https://apexsolutions.dev/apex-export">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Apex Export | Advanced WordPress Export Plugin">
+    <meta property="og:description" content="Export any WordPress data to CSV or XML with a 5-step wizard, WP-Cron scheduling, and WooCommerce support.">
+    <meta property="og:url" content="https://apexsolutions.dev/apex-export">
+    <meta property="og:site_name" content="Apex Solutions">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apex Export | Advanced WordPress Export Plugin">
+    <meta name="twitter:description" content="Export any WordPress data to CSV or XML with a 5-step wizard, WP-Cron scheduling, and WooCommerce support.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Apex Export",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress",
+      "description": "Advanced WordPress data export plugin supporting CSV and XML formats with 5-step wizard, drag-and-drop field mapping, WP-Cron scheduling, and WooCommerce integration.",
+      "softwareVersion": "2.0",
+      "author": { "@type": "Organization", "name": "Apex Solutions" }
+    }
+    </script>
+
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Non-render-blocking Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></noscript>
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
@@ -316,19 +357,25 @@
             .nav-links.open { display: flex; }
             .header-cta { display: none; }
         }
+
+        /* --- PERFORMANCE --- */
+        .section-padding, .perf-section, .split-section, footer { content-visibility: auto; contain-intrinsic-size: auto 800px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="../apexsolutionsv2.html" class="logo"><i class="fa-solid fa-layer-group"></i> APEX SOLUTIONS</a>
+    <a href="../index.html" class="logo"><i class="fa-solid fa-layer-group"></i> APEX SOLUTIONS</a>
     <nav class="nav-links">
         <a href="ApexBooking%20-%20podstranica.html">Booking</a>
         <a href="ApexExport%20-%20podstranica.html">Export</a>
         <a href="ApexImport%20-%20podstranica.html">Import</a>
         <a href="ApexLicence%20-%20podstranica.html">Licence</a>
     </nav>
-    <a href="../apexsolutionsv2.html" class="btn-pill header-cta" style="padding: 10px 25px; font-size: 0.8rem;">GET ACCESS</a>
+    <a href="../index.html" class="btn-pill header-cta" style="padding: 10px 25px; font-size: 0.8rem;">GET ACCESS</a>
     <button class="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
 </header>
 
@@ -339,31 +386,31 @@
         <i class="fa-solid fa-shield"></i> Advanced WordPress Export Plugin
     </span>
 
-    <h1>Export bez gnjavaže.<br><span>Podaci spremni za Excel.</span></h1>
+    <h1>Effortless Data Export.<br><span>Excel-Ready in Seconds.</span></h1>
 
     <p>
-        Izvezite bilo koje WordPress podatke u <strong>CSV</strong> ili <strong>XML</strong> — postove, stranice, CPT-ove, korisnike, komentare, taxonomy i
-        <strong>WooCommerce proizvode & narudžbe</strong>. Sve kroz <strong>5-step wizard</strong> s drag-and-drop mapiranjem, naprednim filtrima,
-        schedulingom i spremanjem templateova.
+        Export any WordPress data to <strong>CSV</strong> or <strong>XML</strong> — posts, pages, CPTs, users, comments, taxonomies, and
+        <strong>WooCommerce products & orders</strong>. All through a <strong>5-step wizard</strong> with drag-and-drop mapping, advanced filters,
+        scheduling, and saved templates.
     </p>
 
     <div class="hero-actions">
-        <a class="btn-main btn-accent" href="#wizard"><i class="fa-solid fa-wand-magic-sparkles"></i> Pokreni New Export</a>
+        <a class="btn-main btn-accent" href="#wizard"><i class="fa-solid fa-wand-magic-sparkles"></i> Start New Export</a>
         <a class="btn-main btn-ghost" href="#features"><i class="fa-solid fa-bolt"></i> Quick Presets</a>
     </div>
 
     <div class="hero-stats">
         <div class="stat-item">
             <span class="stat-val">CSV / XML</span>
-            <span class="stat-label">Format Exporta</span>
+            <span class="stat-label">Export Format</span>
         </div>
         <div class="stat-item">
-            <span class="stat-val">5 Koraka</span>
+            <span class="stat-val">5 Steps</span>
             <span class="stat-label">Wizard Flow</span>
         </div>
         <div class="stat-item">
             <span class="stat-val">WP-Cron</span>
-            <span class="stat-label">Automatski Exporti</span>
+            <span class="stat-label">Automated Exports</span>
         </div>
         <div class="stat-item">
             <span class="stat-val">WooCommerce</span>
@@ -374,28 +421,28 @@
 
 <section class="section-padding" id="features">
     <div style="margin-bottom: 70px; max-width: 820px;">
-        <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--bg-deep-green);">Sve što treba za profesionalni export</h2>
+        <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--bg-deep-green);">Everything You Need for Professional Exports</h2>
         <p style="color: var(--text-grey); font-size: 1.1rem; margin-top: 15px;">
-            Dizajnirano za agencije, web shopove i admin timove kojima trebaju pouzdani izvještaji, migracije i integracije.
+            Designed for agencies, web shops, and admin teams who need reliable reports, migrations, and integrations.
         </p>
     </div>
 
     <div class="grid-3">
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-database"></i></div>
-            <h3 class="card-title">Svi Izvori Podataka</h3>
+            <h3 class="card-title">All Data Sources</h3>
             <p class="card-desc">
-                Posts, Pages, Custom Post Types, Users (roles + meta), Comments (s info o parent postu),
-                Taxonomy Terms i WooCommerce (products + orders).
+                Posts, Pages, Custom Post Types, Users (roles + meta), Comments (with parent post info),
+                Taxonomy Terms, and WooCommerce (products + orders).
             </p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-file-csv"></i></div>
-            <h3 class="card-title">CSV za Excel</h3>
+            <h3 class="card-title">CSV for Excel</h3>
             <p class="card-desc">
-                CSV izlaz je <strong>UTF-8 s BOM</strong> radi maksimalne kompatibilnosti s Excelom.
-                Idealno za HR timove, knjigovodstvo i reporting.
+                CSV output is <strong>UTF-8 with BOM</strong> for maximum Excel compatibility.
+                Ideal for HR teams, accounting, and reporting.
             </p>
         </div>
 
@@ -403,17 +450,17 @@
             <div class="card-icon"><i class="fa-solid fa-code"></i></div>
             <h3 class="card-title">Streaming XML</h3>
             <p class="card-desc">
-                XML writer radi streaming (bez memory spikeova) i koristi ispravno
-                <strong>CDATA escaping</strong> za sigurnu obradu sadržaja.
+                The XML writer uses streaming (no memory spikes) with proper
+                <strong>CDATA escaping</strong> for safe content processing.
             </p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-filter"></i></div>
-            <h3 class="card-title">Napredni Filteri</h3>
+            <h3 class="card-title">Advanced Filters</h3>
             <p class="card-desc">
-                Rule-based filtriranje po meta poljima, taksonomiji i statusu, uz poseban
-                <strong>Date Range</strong> picker s quick presetima (7d/30d/90d/1y/All).
+                Rule-based filtering by meta fields, taxonomy, and status, plus a dedicated
+                <strong>Date Range</strong> picker with quick presets (7d/30d/90d/1y/All).
             </p>
         </div>
 
@@ -421,8 +468,8 @@
             <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
             <h3 class="card-title">Saved Templates</h3>
             <p class="card-desc">
-                Spremi bilo koju konfiguraciju exporta kao template i učitaj je u par klikova.
-                Templateovi se spremaju kao CPT (<strong>apex_export_tpl</strong>).
+                Save any export configuration as a template and load it in a few clicks.
+                Templates are stored as CPT (<strong>apex_export_tpl</strong>).
             </p>
         </div>
 
@@ -430,8 +477,8 @@
             <div class="card-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
             <h3 class="card-title">Export History</h3>
             <p class="card-desc">
-                Log svakog exporta (source, datum, broj zapisa, format, veličina).
-                Jednim klikom preuzmi prošle exporte. Tablica: <strong>apex_export_history</strong>.
+                Log of every export (source, date, record count, format, file size).
+                One-click re-download of past exports. Table: <strong>apex_export_history</strong>.
             </p>
         </div>
     </div>
@@ -513,23 +560,23 @@
         </div>
 
         <div class="split-text">
-            <h2>Wizard koji vodi kroz cijeli proces</h2>
+<h2>A Wizard That Guides You Through the Entire Process</h2>
             <p>
-                Apex Export koristi intuitivan <strong>5-koraka</strong> wizard. U par minuta složiš export, vidiš
-                <strong>live broj zapisa</strong>, dobiješ “enriched” summary i pokreneš export jednim klikom —
-                bez ručnog kopiranja polja ili kompliciranih queryja.
+                Apex Export uses an intuitive <strong>5-step</strong> wizard. In a few minutes you set up an export, see the
+                <strong>live record count</strong>, get an "enriched" summary, and launch the export with one click —
+                no manual field copying or complicated queries needed.
             </p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> Auto-discovery: core, meta, taxonomy i WooCommerce fieldovi</li>
-                <li><i class="fa-solid fa-check"></i> Drag-and-drop mapping polja</li>
+                <li><i class="fa-solid fa-check"></i> Auto-discovery: core, meta, taxonomy, and WooCommerce fields</li>
+                <li><i class="fa-solid fa-check"></i> Drag-and-drop field mapping</li>
                 <li><i class="fa-solid fa-check"></i> Date range picker + quick presets (7d/30d/90d/1y/All)</li>
-                <li><i class="fa-solid fa-check"></i> Batch export (stabilno i za velike siteove)</li>
+                <li><i class="fa-solid fa-check"></i> Batch export (stable even for large sites)</li>
             </ul>
 
             <div style="margin-top: 28px; display:flex; gap: 12px; flex-wrap: wrap;">
                 <a class="btn-main btn-accent" href="#scheduling"><i class="fa-solid fa-calendar-days"></i> Scheduling & Email</a>
-                <a class="btn-main" href="#performance"><i class="fa-solid fa-shield-halved"></i> Stabilnost</a>
+                <a class="btn-main" href="#performance"><i class="fa-solid fa-shield-halved"></i> Stability</a>
             </div>
         </div>
     </div>
@@ -538,16 +585,16 @@
 <section class="section-padding" id="scheduling">
     <div class="split-section">
         <div class="split-text">
-            <h2>Automatski exporti + slanje na email</h2>
+<h2>Automated Exports + Email Delivery</h2>
             <p>
-                Kad jednom složiš template, export se može pokretati automatski preko <strong>WP-Cron</strong>
-                (daily/weekly/monthly) i poslati file direktno na email — idealno za reporting, integracije i “hands-off” admin rutine.
+                Once you set up a template, exports can run automatically via <strong>WP-Cron</strong>
+                (daily/weekly/monthly) and send the file directly by email — ideal for reporting, integrations, and "hands-off" admin routines.
             </p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> HTML email + attachment export filea</li>
-                <li><i class="fa-solid fa-check"></i> Više primatelja (comma-separated emailovi)</li>
-                <li><i class="fa-solid fa-check"></i> Error notifications na cron failure</li>
+                <li><i class="fa-solid fa-check"></i> HTML email + file attachment</li>
+                <li><i class="fa-solid fa-check"></i> Multiple recipients (comma-separated emails)</li>
+                <li><i class="fa-solid fa-check"></i> Error notifications on cron failure</li>
                 <li><i class="fa-solid fa-check"></i> Quick Export Presets: All Posts, All Pages, Last 30 Days, All Users, All Products, All Orders</li>
             </ul>
         </div>
@@ -603,7 +650,7 @@
                 <i class="fa-solid fa-box-archive" style="font-size: 5rem; margin-bottom: 26px; color: var(--accent-green);"></i>
                 <h3 style="font-size: 1.6rem; font-weight: 900;">Templates & History</h3>
                 <p style="opacity: 0.75; margin-top: 10px; line-height: 1.7;">
-                    Spremi konfiguraciju kao template i prati sve exporte kroz povijest — re-download u 1 kliku.
+                    Save configurations as templates and track all exports through history — re-download in 1 click.
                 </p>
                 <div style="margin-top: 20px; display:flex; gap: 10px; justify-content:center; flex-wrap: wrap;">
                     <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);">
@@ -617,17 +664,17 @@
         </div>
 
         <div class="split-text">
-            <h2>Brži workflow za agencije i shopove</h2>
+<h2>Faster Workflow for Agencies and Shops</h2>
             <p>
-                Templateovi rješavaju “ponavljajuće exporte”: jednom složiš mapiranje, filtere i output — i samo
-                učitaš kad treba. Povijest exporta daje transparentnost: tko je što izvezao, kada, koliko zapisa i u kojem formatu.
+                Templates solve "repetitive exports": set up field mapping, filters, and output once — and just
+                load it when needed. Export history provides transparency: who exported what, when, how many records, and in what format.
             </p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> One-click re-download prošlih exporta</li>
+                <li><i class="fa-solid fa-check"></i> One-click re-download of past exports</li>
                 <li><i class="fa-solid fa-check"></i> Log: source, date, record count, format, file size</li>
-                <li><i class="fa-solid fa-check"></i> UX: toast notifikacije + clean wizard UI</li>
-                <li><i class="fa-solid fa-check"></i> Fully responsive (tablet i mobitel)</li>
+                <li><i class="fa-solid fa-check"></i> UX: toast notifications + clean wizard UI</li>
+                <li><i class="fa-solid fa-check"></i> Fully responsive (tablet and mobile)</li>
             </ul>
         </div>
     </div>
@@ -635,10 +682,10 @@
 
 <section class="perf-section" id="performance">
     <div style="text-align: center; margin-bottom: 50px; position: relative; z-index: 2;">
-        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 15px;">Stabilnost i fleksibilnost za realne siteove</h2>
+        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 15px;">Stability and Flexibility for Real-World Sites</h2>
         <p style="opacity: 0.85; max-width: 760px; margin: 0 auto; line-height: 1.7;">
-            Apex Export je napravljen za velik volumen podataka: batch procesiranje, streaming XML, live brojanje zapisa i
-            hookovi za prilagodbu po potrebi.
+            Apex Export is built for high-volume data: batch processing, streaming XML, live record counting, and
+            hooks for customization as needed.
         </p>
     </div>
 
@@ -646,13 +693,13 @@
         <div class="perf-card">
             <i class="fa-solid fa-bolt perf-icon"></i>
             <div class="perf-title">Batch Processing</div>
-            <div class="perf-desc">Export u batch-evima smanjuje load i čuva stabilnost, čak i na velikim bazama.</div>
+            <div class="perf-desc">Export in batches reduces server load and ensures stability, even on large databases.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-shield-halved perf-icon"></i>
-            <div class="perf-title">Pouzdani Output</div>
-            <div class="perf-desc">CSV (UTF-8 + BOM) i XML streaming s CDATA escapingom za čiste, kompatibilne datoteke.</div>
+            <div class="perf-title">Reliable Output</div>
+            <div class="perf-desc">CSV (UTF-8 + BOM) and XML streaming with CDATA escaping for clean, compatible files.</div>
         </div>
 
         <div class="perf-card">
@@ -664,19 +711,19 @@
         <div class="perf-card">
             <i class="fa-solid fa-plug perf-icon"></i>
             <div class="perf-title">Hooks & Filters</div>
-            <div class="perf-desc">Filtri za query args i row transformacije, te action nakon završetka exporta.</div>
+            <div class="perf-desc">Filters for query args and row transformations, plus actions fired after export completion.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-calendar-check perf-icon"></i>
             <div class="perf-title">Scheduling</div>
-            <div class="perf-desc">WP-Cron daily/weekly/monthly + email delivery s više primatelja i error alertovima.</div>
+            <div class="perf-desc">WP-Cron daily/weekly/monthly + email delivery with multiple recipients and error alerts.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-bag-shopping perf-icon"></i>
             <div class="perf-title">WooCommerce Ready</div>
-            <div class="perf-desc">Proizvodi (varijacije, cijene, stock, galerija) i narudžbe (stavke, totals, billing/shipping).</div>
+            <div class="perf-desc">Products (variations, prices, stock, gallery) and orders (items, totals, billing/shipping).</div>
         </div>
     </div>
 </section>
@@ -684,15 +731,15 @@
 <section class="section-padding" id="requirements">
     <div class="split-section" style="margin-bottom: 0;">
         <div class="split-text">
-            <h2>Zahtjevi i kompatibilnost</h2>
+            <h2>Requirements and Compatibility</h2>
             <p>
-                Minimalni zahtjevi su skromni, a WooCommerce je opcionalan — potreban je samo ako exportaš proizvode i narudžbe.
+                Minimum requirements are modest, and WooCommerce is optional — only needed if you export products and orders.
             </p>
 
             <ul class="feature-list">
                 <li><i class="fa-solid fa-check"></i> WordPress 5.8+</li>
                 <li><i class="fa-solid fa-check"></i> PHP 7.4+</li>
-                <li><i class="fa-solid fa-check"></i> WooCommerce 3.0+ (opcijski)</li>
+                <li><i class="fa-solid fa-check"></i> WooCommerce 3.0+ (optional)</li>
             </ul>
         </div>
 
@@ -730,14 +777,14 @@
 </section>
 
 <section class="cta-box">
-    <h2>Spremni izvesti podatke u par klikova?</h2>
+<h2>Ready to Export Data in a Few Clicks?</h2>
     <p>
-        Pokreni “New Export”, odaberi Quick Preset ili složi custom wizard, spremi template i automatiziraj sve kroz Scheduling.
-        Ako želiš i import natrag u WordPress — Apex Import je kompatibilni companion.
+        Start a "New Export", choose a Quick Preset or build a custom wizard, save the template, and automate everything through Scheduling.
+        If you also need to import back into WordPress — Apex Import is the compatible companion.
     </p>
     <div style="display:flex; gap: 14px; justify-content:center; flex-wrap: wrap;">
-        <a class="btn-main btn-accent" href="#"><i class="fa-solid fa-download"></i> Preuzmi Apex Export</a>
-        <a class="btn-main" href="ApexImport%20-%20podstranica.html"><i class="fa-solid fa-rotate"></i> Pogledaj Apex Import</a>
+        <a class="btn-main btn-accent" href="#"><i class="fa-solid fa-download"></i> Get Apex Export</a>
+        <a class="btn-main" href="ApexImport%20-%20podstranica.html"><i class="fa-solid fa-rotate"></i> View Apex Import</a>
     </div>
 
     <div style="margin-top: 26px; opacity: 0.7; font-weight: 700;">
@@ -749,7 +796,7 @@
     <div style="max-width: 1400px; margin: 0 auto;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; margin-bottom: 30px;">
             <div>
-                <a href="../apexsolutionsv2.html" style="font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: white;"><i class="fa-solid fa-layer-group" style="color: var(--accent-green);"></i> APEX SOLUTIONS</a>
+                <a href="../index.html" style="font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: white;"><i class="fa-solid fa-layer-group" style="color: var(--accent-green);"></i> APEX SOLUTIONS</a>
                 <p style="opacity: 0.7; font-size: 0.9rem; max-width: 300px;">Empowering WordPress developers with professional-grade tools.</p>
             </div>
             <div>
@@ -762,7 +809,7 @@
                 </ul>
             </div>
         </div>
-        <div style="text-align: center; opacity: 0.5; font-size: 0.85rem;">&copy; 2026 Apex Solutions. Sva prava pridržana.</div>
+        <div style="text-align: center; opacity: 0.5; font-size: 0.85rem;">&copy; 2026 Apex Solutions. All rights reserved.</div>
     </div>
 </footer>
 

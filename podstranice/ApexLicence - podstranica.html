@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apex Licence | Centralized WordPress Licensing</title>
+    <title>Apex Licence | Centralized WordPress Plugin Licensing System</title>
+    <meta name="description" content="Centralized licensing system for WordPress plugins. Local token generation, WooCommerce server-side validation, REST API endpoint, and scheduled WP-Cron checks.">
+    <meta name="keywords" content="WordPress plugin licensing, license management, WooCommerce licensing, REST API license validation, software licensing WordPress, Apex Licence">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Apex Solutions">
+    <link rel="canonical" href="https://apexsolutions.dev/apex-licence">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="Apex Licence | WordPress Plugin Licensing System">
+    <meta property="og:description" content="Centralized licensing for WordPress plugins with local tokens, WooCommerce server validation, and REST API.">
+    <meta property="og:url" content="https://apexsolutions.dev/apex-licence">
+    <meta property="og:site_name" content="Apex Solutions">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apex Licence | WordPress Plugin Licensing System">
+    <meta name="twitter:description" content="Centralized licensing for WordPress plugins with local tokens, WooCommerce server validation, and REST API.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Apex Licence",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress",
+      "description": "Centralized WordPress plugin licensing system with local token generation, WooCommerce server-side validation, REST API endpoint, and scheduled WP-Cron checks.",
+      "author": { "@type": "Organization", "name": "Apex Solutions" }
+    }
+    </script>
+
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Non-render-blocking Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></noscript>
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
@@ -299,19 +339,25 @@
             .nav-links.open { display: flex; }
             .header-cta { display: none; }
         }
+
+        /* --- RENDER PERFORMANCE --- */
+        .section-padding, .perf-section, .split-section, footer { content-visibility: auto; contain-intrinsic-size: auto 800px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="../apexsolutionsv2.html" class="logo"><i class="fa-solid fa-layer-group"></i> APEX SOLUTIONS</a>
+    <a href="../index.html" class="logo"><i class="fa-solid fa-layer-group"></i> APEX SOLUTIONS</a>
     <nav class="nav-links">
         <a href="ApexBooking%20-%20podstranica.html">Booking</a>
         <a href="ApexExport%20-%20podstranica.html">Export</a>
         <a href="ApexImport%20-%20podstranica.html">Import</a>
         <a href="ApexLicence%20-%20podstranica.html">Licence</a>
     </nav>
-    <a href="../apexsolutionsv2.html" class="btn-pill header-cta" style="padding: 10px 25px; font-size: 0.8rem;">GET ACCESS</a>
+    <a href="../index.html" class="btn-pill header-cta" style="padding: 10px 25px; font-size: 0.8rem;">GET ACCESS</a>
     <button class="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
 </header>
 
@@ -323,27 +369,27 @@
         <i class="fa-solid fa-key"></i> Centralized WordPress Licensing
     </span>
 
-    <h1>Licenciranje pod kontrolom.<br><span>Vaši plugini. Vaša pravila.</span></h1>
+    <h1>Licensing Under Control.<br><span>Your Plugins. Your Rules.</span></h1>
 
     <p>
-        Centralizirani sustav licenciranja za WordPress plugine. Lokalno generiranje tokena,
-        <strong>WooCommerce server-side validacija</strong>, REST API endpoint i zakazane provjere putem WP-Crona —
-        sve u jednom pluginu koji svaki vaš proizvod može koristiti.
+        Centralized licensing system for WordPress plugins. Local token generation,
+        <strong>WooCommerce server-side validation</strong>, REST API endpoint, and scheduled checks via WP-Cron —
+        all in one plugin that every product of yours can use.
     </p>
 
     <div class="hero-actions">
-        <a class="btn-main btn-accent" href="#features"><i class="fa-solid fa-shield-halved"></i> Pregled Značajki</a>
-        <a class="btn-main btn-ghost" href="#integration"><i class="fa-solid fa-code"></i> Integracija</a>
+        <a class="btn-main btn-accent" href="#features"><i class="fa-solid fa-shield-halved"></i> Feature Overview</a>
+        <a class="btn-main btn-ghost" href="#integration"><i class="fa-solid fa-code"></i> Integration</a>
     </div>
 
     <div class="hero-stats">
         <div class="stat-item">
             <span class="stat-val">Local + Remote</span>
-            <span class="stat-label">Validacija Mode</span>
+            <span class="stat-label">Validation Mode</span>
         </div>
         <div class="stat-item">
             <span class="stat-val">WP-Cron</span>
-            <span class="stat-label">Automatske Provjere</span>
+            <span class="stat-label">Automated Checks</span>
         </div>
         <div class="stat-item">
             <span class="stat-val">REST API</span>
@@ -359,19 +405,19 @@
 <!-- ═══════════════════════════════════════════════════════════ FEATURES -->
 <section class="section-padding" id="features">
     <div style="margin-bottom: 70px; max-width: 820px;">
-        <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--bg-deep-green);">Sve za profesionalno licenciranje</h2>
+        <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--bg-deep-green);">Everything for Professional Licensing</h2>
         <p style="color: var(--text-grey); font-size: 1.1rem; margin-top: 15px;">
-            Namijenjen developerima koji prodaju WordPress plugine i trebaju pouzdan sustav za generiranje, validaciju i praćenje licenci.
+            Built for developers who sell WordPress plugins and need a reliable system for generating, validating, and tracking licenses.
         </p>
     </div>
 
     <div class="grid-3">
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-fingerprint"></i></div>
-            <h3 class="card-title">Lokalne Licence</h3>
+            <h3 class="card-title">Local Licenses</h3>
             <p class="card-desc">
-                Generirajte potpisane tokene vezane za domenu i proizvod direktno iz <strong>Tools → ApexLicence</strong>.
-                Bez vanjskog servera — potpuna kontrola lokalno.
+                Generate signed tokens tied to a domain and product directly from <strong>Tools → ApexLicence</strong>.
+                No external server needed — full local control.
             </p>
         </div>
 
@@ -379,26 +425,26 @@
             <div class="card-icon"><i class="fa-brands fa-woocommerce"></i></div>
             <h3 class="card-title">WooCommerce Server</h3>
             <p class="card-desc">
-                Vaš WordPress shop postaje licensing server. Automatsko generiranje ključeva pri završetku narudžbe,
-                pohrana na order meta i REST API za provjeru.
+                Your WordPress shop becomes a licensing server. Automatic key generation on order completion,
+                stored in order meta, with REST API for validation.
             </p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
-            <h3 class="card-title">Zakazane Provjere</h3>
+            <h3 class="card-title">Scheduled Checks</h3>
             <p class="card-desc">
-                WP-Cron provjerava licence jednom ili dvaput dnevno. Status se sprema u <strong>wp_options</strong>
-                pa svaki plugin može odmah saznati je li licenca aktivna.
+                WP-Cron checks licenses once or twice daily. Status is stored in <strong>wp_options</strong>
+                so every plugin can instantly know if the license is active.
             </p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-plug"></i></div>
-            <h3 class="card-title">Hookovi & Filteri</h3>
+            <h3 class="card-title">Hooks & Filters</h3>
             <p class="card-desc">
-                <strong>apexlicence_check_result</strong> filter za prilagodbu statusa i
-                <strong>apexlicence_after_check</strong> action koji se okida nakon svake provjere.
+                <strong>apexlicence_check_result</strong> filter for status customization and
+                <strong>apexlicence_after_check</strong> action that fires after each check.
             </p>
         </div>
 
@@ -406,18 +452,18 @@
             <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
             <h3 class="card-title">Custom Validator</h3>
             <p class="card-desc">
-                Prosljedite <strong>validator_callback</strong> pri registraciji i implementirajte vlastitu logiku.
-                Callback prima payload i config, vraća valid/message/expires_at.
+                Pass a <strong>validator_callback</strong> during registration and implement your own logic.
+                The callback receives payload and config, returns valid/message/expires_at.
             </p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-terminal"></i></div>
-            <h3 class="card-title">Helper Funkcije</h3>
+            <h3 class="card-title">Helper Functions</h3>
             <p class="card-desc">
                 <strong>apexlicence_is_valid()</strong>, <strong>apexlicence_get_status()</strong>,
-                <strong>apexlicence_check_now()</strong> i <strong>apexlicence_unregister_plugin()</strong>
-                — sve dostupno globalno.
+                <strong>apexlicence_check_now()</strong>, and <strong>apexlicence_unregister_plugin()</strong>
+                — all available globally.
             </p>
         </div>
     </div>
@@ -455,17 +501,17 @@
         </div>
 
         <div class="split-text">
-            <h2>Integracija u par linija koda</h2>
+            <h2>Integration in a Few Lines of Code</h2>
             <p>
-                Registrirajte plugin jednim pozivom i ApexLicence preuzima sve ostalo — zakazane provjere,
-                status storage i helper funkcije dostupne bilo gdje u vašem kodu.
+                Register a plugin with a single call and ApexLicence handles everything else — scheduled checks,
+                status storage, and helper functions available anywhere in your code.
             </p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> <strong>mode → local</strong>: token generiranje bez servera</li>
-                <li><i class="fa-solid fa-check"></i> <strong>mode → remote</strong>: api_url za provjeru na vašem shopu</li>
-                <li><i class="fa-solid fa-check"></i> <strong>check_interval</strong>: koliko često provjeravati (default 12h)</li>
-                <li><i class="fa-solid fa-check"></i> <strong>validator_callback</strong>: potpuno custom validacija</li>
+                <li><i class="fa-solid fa-check"></i> <strong>mode → local</strong>: token generation without a server</li>
+                <li><i class="fa-solid fa-check"></i> <strong>mode → remote</strong>: api_url for validation on your shop</li>
+                <li><i class="fa-solid fa-check"></i> <strong>check_interval</strong>: how often to validate (default 12h)</li>
+                <li><i class="fa-solid fa-check"></i> <strong>validator_callback</strong>: fully custom validation</li>
             </ul>
 
             <div style="margin-top: 28px; display:flex; gap: 12px; flex-wrap: wrap;">
@@ -480,19 +526,19 @@
 <section class="section-padding" id="woocommerce">
     <div class="split-section">
         <div class="split-text">
-            <h2>Vaš shop kao licensing server</h2>
+            <h2>Your Shop as a Licensing Server</h2>
             <p>
-                Kad WooCommerce narudžba završi, ApexLicence automatski generira ključ i sprema ga na order.
-                Klijentski plugini šalju zahtjev na vaš <strong>REST API endpoint</strong> za provjeru —
-                bez ikakve treće strane.
+                When a WooCommerce order completes, ApexLicence automatically generates a key and stores it on the order.
+                Client plugins send a request to your <strong>REST API endpoint</strong> for validation —
+                without any third party.
             </p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> Automatsko generiranje ključeva na order completion</li>
+                <li><i class="fa-solid fa-check"></i> Automatic key generation on order completion</li>
                 <li><i class="fa-solid fa-check"></i> REST endpoint: /wp-json/apexlicence/v1/check</li>
-                <li><i class="fa-solid fa-check"></i> Provjera po license_key, domain i product_id</li>
-                <li><i class="fa-solid fa-check"></i> Opcionalni expiration date per product</li>
-                <li><i class="fa-solid fa-check"></i> Ključevi dostupni kao order note i meta</li>
+                <li><i class="fa-solid fa-check"></i> Validation by license_key, domain, and product_id</li>
+                <li><i class="fa-solid fa-check"></i> Optional expiration date per product</li>
+                <li><i class="fa-solid fa-check"></i> Keys available as order note and meta</li>
             </ul>
         </div>
 
@@ -531,7 +577,7 @@
                 </div>
 
                 <div style="margin-top: 18px; text-align:center; font-weight:800; color: var(--text-grey); font-size: 0.95rem;">
-                    "Sell once, validate forever" — vaš WooCommerce shop kao SaaS backend.
+                    "Sell once, validate forever" — your WooCommerce shop as a SaaS backend.
                 </div>
             </div>
         </div>
@@ -546,7 +592,7 @@
                 <i class="fa-solid fa-toolbox" style="font-size: 5rem; margin-bottom: 26px; color: var(--accent-green);"></i>
                 <h3 style="font-size: 1.6rem; font-weight: 900;">Helper API</h3>
                 <p style="opacity: 0.75; margin-top: 10px; line-height: 1.7;">
-                    Globalno dostupne funkcije za provjeru, dohvat statusa i upravljanje pluginima.
+                    Globally available functions for checking, retrieving status, and managing plugins.
                 </p>
                 <div style="margin-top: 20px; display:flex; gap: 10px; justify-content:center; flex-wrap: wrap;">
                     <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);">
@@ -563,10 +609,10 @@
         </div>
 
         <div class="split-text">
-            <h2>Jednostavan API za developere</h2>
+            <h2>Simple API for Developers</h2>
             <p>
-                Četiri helper funkcije pokrivaju sve scenarije — od brze provjere u <code>if</code> statementu
-                do forsirane revalidacije i deregistracije. Svaki plugin pristupa istom mehanizmu.
+                Four helper functions cover all scenarios — from a quick check in an <code>if</code> statement
+                to forced revalidation and deregistration. Every plugin accesses the same mechanism.
             </p>
 
             <ul class="feature-list">
@@ -582,10 +628,10 @@
 <!-- ═══════════════════════════════════════════════════════════ PERFORMANCE -->
 <section class="perf-section" id="performance">
     <div style="text-align: center; margin-bottom: 50px; position: relative; z-index: 2;">
-        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 15px;">Arhitektura i sigurnost</h2>
+        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 15px;">Architecture and Security</h2>
         <p style="opacity: 0.85; max-width: 760px; margin: 0 auto; line-height: 1.7;">
-            ApexLicence je dizajniran za pouzdanost — potpisan token, domain-lock, tihe pozadinske provjere
-            i minimalan footprint u bazi.
+            ApexLicence is designed for reliability — signed tokens, domain-lock, silent background checks,
+            and minimal database footprint.
         </p>
     </div>
 
@@ -593,37 +639,37 @@
         <div class="perf-card">
             <i class="fa-solid fa-signature perf-icon"></i>
             <div class="perf-title">Signed Tokens</div>
-            <div class="perf-desc">Lokalne licence koriste tajni ključ (apexlicence_secret) za potpisivanje. Token je vezan za domenu i slug.</div>
+            <div class="perf-desc">Local licenses use a secret key (apexlicence_secret) for signing. The token is tied to domain and slug.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-clock perf-icon"></i>
             <div class="perf-title">Scheduled Checks</div>
-            <div class="perf-desc">WP-Cron provjere svakih 12 ili 24 sata. Nema blokiranja korisničkih requestova — sve ide u pozadini.</div>
+            <div class="perf-desc">WP-Cron checks every 12 or 24 hours. No blocking of user requests — everything runs in the background.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-globe perf-icon"></i>
             <div class="perf-title">Domain Locking</div>
-            <div class="perf-desc">Svaki token/ključ vezan za specifičnu domenu. Endpoint provjerava podudaranje domene pri svakom requestu.</div>
+            <div class="perf-desc">Every token/key is tied to a specific domain. The endpoint verifies domain match on every request.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-database perf-icon"></i>
-            <div class="perf-title">Lagan Footprint</div>
-            <div class="perf-desc">Samo 3 wp_options zapisa: registrirani plugini, statusi i signing key. Bez custom tablica.</div>
+            <div class="perf-title">Lightweight Footprint</div>
+            <div class="perf-desc">Only 3 wp_options records: registered plugins, statuses, and signing key. No custom tables.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-plug perf-icon"></i>
-            <div class="perf-title">Hookovi za Proširenje</div>
-            <div class="perf-desc">apexlicence_check_result filter i apexlicence_after_check action — adaptirajte ponašanje za edge case.</div>
+            <div class="perf-title">Hooks for Extension</div>
+            <div class="perf-desc">apexlicence_check_result filter and apexlicence_after_check action — adapt behavior for edge cases.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-shield-halved perf-icon"></i>
             <div class="perf-title">REST API Endpoint</div>
-            <div class="perf-desc">/wp-json/apexlicence/v1/check prima license_key, domain i product_id. Standardna WordPress REST registracija.</div>
+            <div class="perf-desc">/wp-json/apexlicence/v1/check accepts license_key, domain, and product_id. Standard WordPress REST registration.</div>
         </div>
     </div>
 </section>
@@ -632,16 +678,16 @@
 <section class="section-padding" id="requirements">
     <div class="split-section" style="margin-bottom: 0;">
         <div class="split-text">
-            <h2>Zahtjevi i kompatibilnost</h2>
+            <h2>Requirements and Compatibility</h2>
             <p>
-                ApexLicence radi standalone za lokalni mode. WooCommerce je potreban samo ako koristite
-                server-side licensing (automatsko generiranje ključeva na narudžbe).
+                ApexLicence works standalone for local mode. WooCommerce is only required if you use
+                server-side licensing (automatic key generation on orders).
             </p>
 
             <ul class="feature-list">
                 <li><i class="fa-solid fa-check"></i> WordPress 5.8+</li>
                 <li><i class="fa-solid fa-check"></i> PHP 7.4+</li>
-                <li><i class="fa-solid fa-check"></i> WooCommerce (opcijski, za server mode)</li>
+                <li><i class="fa-solid fa-check"></i> WooCommerce (optional, for server mode)</li>
             </ul>
         </div>
 
@@ -680,14 +726,14 @@
 
 <!-- ═══════════════════════════════════════════════════════════ CTA -->
 <section class="cta-box">
-    <h2>Spremni zaštititi svoje plugine?</h2>
+    <h2>Ready to Protect Your Plugins?</h2>
     <p>
-        Registrirajte se, generirajte licence lokalno ili postavite WooCommerce server — sve u jednom pluginu.
-        Kombinirajte s Apex Booking, Export i Import za kompletni Apex ekosustav.
+        Register, generate licenses locally or set up a WooCommerce server — all in one plugin.
+        Combine with Apex Booking, Export, and Import for the complete Apex ecosystem.
     </p>
     <div style="display:flex; gap: 14px; justify-content:center; flex-wrap: wrap;">
-        <a class="btn-main btn-accent" href="#"><i class="fa-solid fa-download"></i> Preuzmi ApexLicence</a>
-        <a class="btn-main" href="../apexsolutionsv2.html"><i class="fa-solid fa-layer-group"></i> Svi Proizvodi</a>
+        <a class="btn-main btn-accent" href="#"><i class="fa-solid fa-download"></i> Get ApexLicence</a>
+        <a class="btn-main" href="../index.html"><i class="fa-solid fa-layer-group"></i> All Products</a>
     </div>
 
     <div style="margin-top: 26px; opacity: 0.7; font-weight: 700;">
@@ -700,7 +746,7 @@
     <div style="max-width: 1400px; margin: 0 auto;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; margin-bottom: 30px;">
             <div>
-                <a href="../apexsolutionsv2.html" style="font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: white;"><i class="fa-solid fa-layer-group" style="color: var(--accent-green);"></i> APEX SOLUTIONS</a>
+                <a href="../index.html" style="font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: white;"><i class="fa-solid fa-layer-group" style="color: var(--accent-green);"></i> APEX SOLUTIONS</a>
                 <p style="opacity: 0.7; font-size: 0.9rem; max-width: 300px;">Empowering WordPress developers with professional-grade tools.</p>
             </div>
             <div>
@@ -713,7 +759,7 @@
                 </ul>
             </div>
         </div>
-        <div style="text-align: center; opacity: 0.5; font-size: 0.85rem;">&copy; 2026 Apex Solutions. Sva prava pridržana.</div>
+        <div style="text-align: center; opacity: 0.5; font-size: 0.85rem;">&copy; 2026 Apex Solutions. All rights reserved.</div>
     </div>
 </footer>
 
