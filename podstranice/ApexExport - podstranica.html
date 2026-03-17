@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex Export | Advanced WordPress Export Plugin</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep-green: #1a3c34;
+            --bg-light-green: #2c5e52;
+            --accent-green: #4ade80;
+            --text-white: #ffffff;
+            --text-dark: #1f2937;
+            --text-grey: #4b5563;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manrope', sans-serif; }
+        body { background-color: #ffffff; color: var(--text-dark); overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        .muted { color: var(--text-grey); }
+
+        /* --- HEADER --- */
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            color: var(--text-white);
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 40px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--accent-green); }
+        .btn-pill {
+            background: var(--text-white);
+            color: var(--bg-deep-green);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .btn-pill:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* --- HERO --- */
+        .product-hero {
+            background: linear-gradient(180deg, var(--bg-deep-green) 0%, #112520 100%);
+            padding: 160px 20px 100px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-glow {
+            position: absolute;
+            inset: -200px;
+            background: radial-gradient(circle at 50% 20%, rgba(74,222,128,0.18), transparent 55%);
+            pointer-events: none;
+        }
+        .badge-pill {
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--accent-green);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .product-hero h1 { font-size: 4rem; line-height: 1.1; font-weight: 800; margin-bottom: 25px; position: relative; z-index: 2; }
+        .product-hero h1 span { color: var(--accent-green); }
+        .product-hero p { max-width: 820px; margin: 0 auto 40px; font-size: 1.2rem; opacity: 0.85; line-height: 1.7; position: relative; z-index: 2; }
+
+        .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 2; }
+        .btn-main {
+            background: var(--bg-deep-green);
+            color: white;
+            padding: 16px 34px;
+            border-radius: 50px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(26, 60, 52, 0.25); }
+        .btn-accent {
+            background: var(--accent-green);
+            color: var(--bg-deep-green);
+            border: 1px solid rgba(74,222,128,0.35);
+        }
+        .btn-ghost {
+            background: rgba(255,255,255,0.06);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .btn-ghost:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.18); }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+        .stat-item { text-align: left; border-left: 3px solid var(--accent-green); padding-left: 15px; }
+        .stat-val { font-size: 1.4rem; font-weight: 800; display: block; color: white; }
+        .stat-label { font-size: 0.85rem; opacity: 0.65; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; display: block; }
+
+        /* --- SECTIONS / GRID --- */
+        .section-padding { padding: 100px 50px; max-width: 1400px; margin: 0 auto; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+
+        .feature-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            padding: 40px;
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+        .feature-card:hover { border-color: var(--accent-green); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card-icon { width: 55px; height: 55px; background: rgba(74, 222, 128, 0.12); color: var(--bg-deep-green); display: flex; align-items: center; justify-content: center; border-radius: 14px; font-size: 1.3rem; margin-bottom: 25px; }
+        .card-title { font-size: 1.3rem; font-weight: 900; margin-bottom: 12px; color: var(--bg-deep-green); }
+        .card-desc { color: var(--text-grey); font-size: 0.95rem; line-height: 1.65; }
+
+        /* --- SPLIT --- */
+        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 120px; }
+        .split-text h2 { font-size: 2.8rem; font-weight: 900; margin-bottom: 20px; color: var(--bg-deep-green); line-height: 1.1; }
+        .split-text p { color: var(--text-grey); margin-bottom: 26px; line-height: 1.75; font-size: 1.05rem; }
+
+        .feature-list li { margin-bottom: 14px; display: flex; gap: 15px; align-items: flex-start; font-weight: 700; color: var(--text-dark); }
+        .feature-list li i { color: var(--accent-green); font-size: 1.1rem; margin-top: 3px; }
+
+        .visual-box {
+            background: #f8fafc;
+            border-radius: 24px;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+            padding: 30px;
+        }
+
+        .mini-ui {
+            width: 100%;
+            max-width: 520px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.06);
+        }
+        .mini-ui-top {
+            background: linear-gradient(180deg, #f8fafc, #ffffff);
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eef2f7;
+        }
+        .mini-ui-top strong { color: var(--bg-deep-green); font-weight: 900; }
+        .pill {
+            font-size: 0.75rem;
+            font-weight: 900;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(74,222,128,0.12);
+            color: var(--bg-deep-green);
+            border: 1px solid rgba(74,222,128,0.25);
+        }
+        .mini-ui-body { padding: 18px 20px; }
+        .wizard-steps {
+            display: grid;
+            gap: 10px;
+        }
+        .step-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 12px;
+            border: 1px solid #eef2f7;
+            border-radius: 14px;
+        }
+        .step-left { display: flex; align-items: center; gap: 12px; }
+        .step-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: var(--bg-deep-green);
+            background: rgba(26,60,52,0.06);
+            border: 1px solid rgba(26,60,52,0.12);
+        }
+        .step-title { font-weight: 900; color: #111827; }
+        .step-sub { font-size: 0.85rem; color: var(--text-grey); margin-top: 2px; }
+        .step-right {
+            font-size: 0.85rem;
+            font-weight: 900;
+            color: var(--bg-deep-green);
+            opacity: 0.85;
+        }
+
+        /* --- PERFORMANCE --- */
+        .perf-section { background: #111827; color: white; padding: 100px 50px; border-radius: 30px; margin: 50px; position: relative; overflow: hidden; }
+        .perf-section::before{
+            content:"";
+            position:absolute;
+            inset:-150px;
+            background: radial-gradient(circle at 30% 20%, rgba(74,222,128,0.18), transparent 55%),
+                        radial-gradient(circle at 70% 60%, rgba(74,222,128,0.10), transparent 55%);
+            pointer-events:none;
+        }
+        .perf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; position: relative; z-index: 2; }
+        .perf-card { background: rgba(255,255,255,0.03); padding: 35px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); transition: 0.3s; }
+        .perf-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-5px); }
+        .perf-icon { font-size: 2rem; color: var(--accent-green); margin-bottom: 18px; display: block; }
+        .perf-title { font-size: 1.2rem; font-weight: 900; margin-bottom: 10px; }
+        .perf-desc { font-size: 0.92rem; opacity: 0.75; line-height: 1.65; }
+
+        /* --- REQUIREMENTS / TABLE --- */
+        .req-wrap {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .req-head {
+            padding: 18px 22px;
+            background: #f8fafc;
+            border-bottom: 1px solid #eef2f7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .req-head strong { font-weight: 900; color: var(--bg-deep-green); }
+        .req-table { width: 100%; border-collapse: collapse; }
+        .req-table th, .req-table td {
+            padding: 16px 22px;
+            border-bottom: 1px solid #eef2f7;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        .req-table th { color: #111827; font-weight: 900; }
+        .req-table td { color: var(--text-grey); font-weight: 700; }
+        .req-table tr:last-child td { border-bottom: none; }
+
+        /* --- CTA --- */
+        .cta-box { text-align: center; padding: 80px 0; }
+        .cta-box h2 { font-size: 2.5rem; font-weight: 900; color: var(--bg-deep-green); margin-bottom: 18px; }
+        .cta-box p { max-width: 820px; margin: 0 auto 28px; color: var(--text-grey); font-size: 1.05rem; line-height: 1.7; }
+
+        footer { background: var(--bg-deep-green); color: white; padding: 60px 50px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+
+        /* --- MOBILE MENU --- */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 101;
+        }
+
+        @media (max-width: 900px) {
+            header { padding: 18px 20px; }
+            .product-hero h1 { font-size: 2.7rem; }
+            .split-section { grid-template-columns: 1fr; gap: 40px; }
+            .perf-grid { grid-template-columns: 1fr; }
+            .section-padding { padding: 60px 20px; }
+            .perf-section { margin: 20px; padding: 70px 20px; }
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-deep-green);
+                flex-direction: column;
+                padding: 20px 25px;
+                gap: 18px;
+                border-top: 1px solid rgba(255,255,255,0.1);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            }
+            .nav-links.open { display: flex; }
+            .header-cta { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="../apexsolutionsv2.html" class="logo"><i class="fa-solid fa-layer-group"></i> APEX SOLUTIONS</a>
+    <nav class="nav-links">
+        <a href="ApexBooking%20-%20podstranica.html">Booking</a>
+        <a href="ApexExport%20-%20podstranica.html">Export</a>
+        <a href="ApexImport%20-%20podstranica.html">Import</a>
+        <a href="ApexLicence%20-%20podstranica.html">Licence</a>
+    </nav>
+    <a href="../apexsolutionsv2.html" class="btn-pill header-cta" style="padding: 10px 25px; font-size: 0.8rem;">GET ACCESS</a>
+    <button class="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+</header>
+
+<section class="product-hero">
+    <div class="hero-glow"></div>
+
+    <span class="badge-pill">
+        <i class="fa-solid fa-shield"></i> Advanced WordPress Export Plugin
+    </span>
+
+    <h1>Export bez gnjavaže.<br><span>Podaci spremni za Excel.</span></h1>
+
+    <p>
+        Izvezite bilo koje WordPress podatke u <strong>CSV</strong> ili <strong>XML</strong> — postove, stranice, CPT-ove, korisnike, komentare, taxonomy i
+        <strong>WooCommerce proizvode & narudžbe</strong>. Sve kroz <strong>5-step wizard</strong> s drag-and-drop mapiranjem, naprednim filtrima,
+        schedulingom i spremanjem templateova.
+    </p>
+
+    <div class="hero-actions">
+        <a class="btn-main btn-accent" href="#wizard"><i class="fa-solid fa-wand-magic-sparkles"></i> Pokreni New Export</a>
+        <a class="btn-main btn-ghost" href="#features"><i class="fa-solid fa-bolt"></i> Quick Presets</a>
+    </div>
+
+    <div class="hero-stats">
+        <div class="stat-item">
+            <span class="stat-val">CSV / XML</span>
+            <span class="stat-label">Format Exporta</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-val">5 Koraka</span>
+            <span class="stat-label">Wizard Flow</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-val">WP-Cron</span>
+            <span class="stat-label">Automatski Exporti</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-val">WooCommerce</span>
+            <span class="stat-label">Products & Orders</span>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" id="features">
+    <div style="margin-bottom: 70px; max-width: 820px;">
+        <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--bg-deep-green);">Sve što treba za profesionalni export</h2>
+        <p style="color: var(--text-grey); font-size: 1.1rem; margin-top: 15px;">
+            Dizajnirano za agencije, web shopove i admin timove kojima trebaju pouzdani izvještaji, migracije i integracije.
+        </p>
+    </div>
+
+    <div class="grid-3">
+        <div class="feature-card">
+            <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+            <h3 class="card-title">Svi Izvori Podataka</h3>
+            <p class="card-desc">
+                Posts, Pages, Custom Post Types, Users (roles + meta), Comments (s info o parent postu),
+                Taxonomy Terms i WooCommerce (products + orders).
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-icon"><i class="fa-solid fa-file-csv"></i></div>
+            <h3 class="card-title">CSV za Excel</h3>
+            <p class="card-desc">
+                CSV izlaz je <strong>UTF-8 s BOM</strong> radi maksimalne kompatibilnosti s Excelom.
+                Idealno za HR timove, knjigovodstvo i reporting.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+            <h3 class="card-title">Streaming XML</h3>
+            <p class="card-desc">
+                XML writer radi streaming (bez memory spikeova) i koristi ispravno
+                <strong>CDATA escaping</strong> za sigurnu obradu sadržaja.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-icon"><i class="fa-solid fa-filter"></i></div>
+            <h3 class="card-title">Napredni Filteri</h3>
+            <p class="card-desc">
+                Rule-based filtriranje po meta poljima, taksonomiji i statusu, uz poseban
+                <strong>Date Range</strong> picker s quick presetima (7d/30d/90d/1y/All).
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3 class="card-title">Saved Templates</h3>
+            <p class="card-desc">
+                Spremi bilo koju konfiguraciju exporta kao template i učitaj je u par klikova.
+                Templateovi se spremaju kao CPT (<strong>apex_export_tpl</strong>).
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="card-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <h3 class="card-title">Export History</h3>
+            <p class="card-desc">
+                Log svakog exporta (source, datum, broj zapisa, format, veličina).
+                Jednim klikom preuzmi prošle exporte. Tablica: <strong>apex_export_history</strong>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" id="wizard">
+    <div class="split-section">
+        <div class="visual-box" style="background: linear-gradient(180deg, #0f2a24, #112520); border-color: rgba(255,255,255,0.12);">
+            <div class="mini-ui">
+                <div class="mini-ui-top">
+                    <strong><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-green); margin-right: 8px;"></i> Export Wizard</strong>
+                    <span class="pill">Live record count</span>
+                </div>
+                <div class="mini-ui-body">
+                    <div class="wizard-steps">
+                        <div class="step-row">
+                            <div class="step-left">
+                                <div class="step-num">1</div>
+                                <div>
+                                    <div class="step-title">Choose Source</div>
+                                    <div class="step-sub">Posts / Users / Comments / Taxonomy</div>
+                                </div>
+                            </div>
+                            <div class="step-right"><i class="fa-solid fa-chevron-right"></i></div>
+                        </div>
+
+                        <div class="step-row">
+                            <div class="step-left">
+                                <div class="step-num">2</div>
+                                <div>
+                                    <div class="step-title">Map Fields</div>
+                                    <div class="step-sub">Drag & drop + auto discovery</div>
+                                </div>
+                            </div>
+                            <div class="step-right"><i class="fa-solid fa-grip-vertical"></i></div>
+                        </div>
+
+                        <div class="step-row">
+                            <div class="step-left">
+                                <div class="step-num">3</div>
+                                <div>
+                                    <div class="step-title">Filter Data</div>
+                                    <div class="step-sub">Meta / taxonomy / status + date range</div>
+                                </div>
+                            </div>
+                            <div class="step-right"><i class="fa-solid fa-filter"></i></div>
+                        </div>
+
+                        <div class="step-row">
+                            <div class="step-left">
+                                <div class="step-num">4</div>
+                                <div>
+                                    <div class="step-title">Configure Output</div>
+                                    <div class="step-sub">CSV/XML · batch size · filename</div>
+                                </div>
+                            </div>
+                            <div class="step-right"><i class="fa-solid fa-file-lines"></i></div>
+                        </div>
+
+                        <div class="step-row">
+                            <div class="step-left">
+                                <div class="step-num">5</div>
+                                <div>
+                                    <div class="step-title">Review & Export</div>
+                                    <div class="step-sub">Summary + one-click export</div>
+                                </div>
+                            </div>
+                            <div class="step-right"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 16px; display:flex; gap: 10px; flex-wrap: wrap;">
+                        <span class="pill"><i class="fa-solid fa-bell" style="margin-right:6px;"></i> Toast alerts</span>
+                        <span class="pill"><i class="fa-solid fa-wand-sparkles" style="margin-right:6px;"></i> Confetti on success</span>
+                        <span class="pill"><i class="fa-solid fa-circle-info" style="margin-right:6px;"></i> Help tooltips</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="split-text">
+            <h2>Wizard koji vodi kroz cijeli proces</h2>
+            <p>
+                Apex Export koristi intuitivan <strong>5-koraka</strong> wizard. U par minuta složiš export, vidiš
+                <strong>live broj zapisa</strong>, dobiješ “enriched” summary i pokreneš export jednim klikom —
+                bez ručnog kopiranja polja ili kompliciranih queryja.
+            </p>
+
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-check"></i> Auto-discovery: core, meta, taxonomy i WooCommerce fieldovi</li>
+                <li><i class="fa-solid fa-check"></i> Drag-and-drop mapping polja</li>
+                <li><i class="fa-solid fa-check"></i> Date range picker + quick presets (7d/30d/90d/1y/All)</li>
+                <li><i class="fa-solid fa-check"></i> Batch export (stabilno i za velike siteove)</li>
+            </ul>
+
+            <div style="margin-top: 28px; display:flex; gap: 12px; flex-wrap: wrap;">
+                <a class="btn-main btn-accent" href="#scheduling"><i class="fa-solid fa-calendar-days"></i> Scheduling & Email</a>
+                <a class="btn-main" href="#performance"><i class="fa-solid fa-shield-halved"></i> Stabilnost</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" id="scheduling">
+    <div class="split-section">
+        <div class="split-text">
+            <h2>Automatski exporti + slanje na email</h2>
+            <p>
+                Kad jednom složiš template, export se može pokretati automatski preko <strong>WP-Cron</strong>
+                (daily/weekly/monthly) i poslati file direktno na email — idealno za reporting, integracije i “hands-off” admin rutine.
+            </p>
+
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-check"></i> HTML email + attachment export filea</li>
+                <li><i class="fa-solid fa-check"></i> Više primatelja (comma-separated emailovi)</li>
+                <li><i class="fa-solid fa-check"></i> Error notifications na cron failure</li>
+                <li><i class="fa-solid fa-check"></i> Quick Export Presets: All Posts, All Pages, Last 30 Days, All Users, All Products, All Orders</li>
+            </ul>
+        </div>
+
+        <div class="visual-box">
+            <div style="width: 100%; max-width: 520px;">
+                <div style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 18px; padding: 22px; box-shadow: 0 20px 45px rgba(0,0,0,0.06);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 14px;">
+                        <strong style="font-weight:900; color: var(--bg-deep-green);">
+                            <i class="fa-solid fa-calendar-days" style="color: var(--accent-green); margin-right: 8px;"></i>
+                            Scheduling
+                        </strong>
+                        <span class="pill">WP-Cron</span>
+                    </div>
+
+                    <div style="display:grid; gap: 10px;">
+                        <div style="display:flex; justify-content:space-between; padding: 12px 14px; border:1px solid #eef2f7; border-radius: 14px;">
+                            <span style="font-weight:900;">Template</span>
+                            <span class="muted" style="font-weight:800;">All Orders (Monthly)</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; padding: 12px 14px; border:1px solid #eef2f7; border-radius: 14px;">
+                            <span style="font-weight:900;">Frequency</span>
+                            <span class="muted" style="font-weight:800;">Monthly</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; padding: 12px 14px; border:1px solid #eef2f7; border-radius: 14px;">
+                            <span style="font-weight:900;">Recipients</span>
+                            <span class="muted" style="font-weight:800;">finance@… , ops@…</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; padding: 12px 14px; border:1px solid #eef2f7; border-radius: 14px;">
+                            <span style="font-weight:900;">Delivery</span>
+                            <span class="muted" style="font-weight:800;">HTML + Attachment</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 14px; display:flex; gap: 10px; flex-wrap: wrap;">
+                        <span class="pill"><i class="fa-solid fa-triangle-exclamation" style="margin-right:6px;"></i> Error alerts</span>
+                        <span class="pill"><i class="fa-solid fa-file-arrow-down" style="margin-right:6px;"></i> Auto export</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 18px; text-align:center; font-weight:800; color: var(--text-grey); font-size: 0.95rem;">
+                    “Set & forget” reporting za timove i klijente.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="split-section">
+        <div class="visual-box" style="background: #1a3c34; border-color: rgba(255,255,255,0.12);">
+            <div style="text-align: center; color: white; max-width: 520px;">
+                <i class="fa-solid fa-box-archive" style="font-size: 5rem; margin-bottom: 26px; color: var(--accent-green);"></i>
+                <h3 style="font-size: 1.6rem; font-weight: 900;">Templates & History</h3>
+                <p style="opacity: 0.75; margin-top: 10px; line-height: 1.7;">
+                    Spremi konfiguraciju kao template i prati sve exporte kroz povijest — re-download u 1 kliku.
+                </p>
+                <div style="margin-top: 20px; display:flex; gap: 10px; justify-content:center; flex-wrap: wrap;">
+                    <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);">
+                        <i class="fa-solid fa-table" style="margin-right:6px;"></i> apex_export_history
+                    </span>
+                    <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);">
+                        <i class="fa-solid fa-layer-group" style="margin-right:6px;"></i> apex_export_tpl
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="split-text">
+            <h2>Brži workflow za agencije i shopove</h2>
+            <p>
+                Templateovi rješavaju “ponavljajuće exporte”: jednom složiš mapiranje, filtere i output — i samo
+                učitaš kad treba. Povijest exporta daje transparentnost: tko je što izvezao, kada, koliko zapisa i u kojem formatu.
+            </p>
+
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-check"></i> One-click re-download prošlih exporta</li>
+                <li><i class="fa-solid fa-check"></i> Log: source, date, record count, format, file size</li>
+                <li><i class="fa-solid fa-check"></i> UX: toast notifikacije + clean wizard UI</li>
+                <li><i class="fa-solid fa-check"></i> Fully responsive (tablet i mobitel)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="perf-section" id="performance">
+    <div style="text-align: center; margin-bottom: 50px; position: relative; z-index: 2;">
+        <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 15px;">Stabilnost i fleksibilnost za realne siteove</h2>
+        <p style="opacity: 0.85; max-width: 760px; margin: 0 auto; line-height: 1.7;">
+            Apex Export je napravljen za velik volumen podataka: batch procesiranje, streaming XML, live brojanje zapisa i
+            hookovi za prilagodbu po potrebi.
+        </p>
+    </div>
+
+    <div class="perf-grid">
+        <div class="perf-card">
+            <i class="fa-solid fa-bolt perf-icon"></i>
+            <div class="perf-title">Batch Processing</div>
+            <div class="perf-desc">Export u batch-evima smanjuje load i čuva stabilnost, čak i na velikim bazama.</div>
+        </div>
+
+        <div class="perf-card">
+            <i class="fa-solid fa-shield-halved perf-icon"></i>
+            <div class="perf-title">Pouzdani Output</div>
+            <div class="perf-desc">CSV (UTF-8 + BOM) i XML streaming s CDATA escapingom za čiste, kompatibilne datoteke.</div>
+        </div>
+
+        <div class="perf-card">
+            <i class="fa-solid fa-wand-magic-sparkles perf-icon"></i>
+            <div class="perf-title">UX Boost</div>
+            <div class="perf-desc">Toast notifikacije, help tooltips, live record count i confetti na uspjeh — bez “alert()” dijaloga.</div>
+        </div>
+
+        <div class="perf-card">
+            <i class="fa-solid fa-plug perf-icon"></i>
+            <div class="perf-title">Hooks & Filters</div>
+            <div class="perf-desc">Filtri za query args i row transformacije, te action nakon završetka exporta.</div>
+        </div>
+
+        <div class="perf-card">
+            <i class="fa-solid fa-calendar-check perf-icon"></i>
+            <div class="perf-title">Scheduling</div>
+            <div class="perf-desc">WP-Cron daily/weekly/monthly + email delivery s više primatelja i error alertovima.</div>
+        </div>
+
+        <div class="perf-card">
+            <i class="fa-solid fa-bag-shopping perf-icon"></i>
+            <div class="perf-title">WooCommerce Ready</div>
+            <div class="perf-desc">Proizvodi (varijacije, cijene, stock, galerija) i narudžbe (stavke, totals, billing/shipping).</div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" id="requirements">
+    <div class="split-section" style="margin-bottom: 0;">
+        <div class="split-text">
+            <h2>Zahtjevi i kompatibilnost</h2>
+            <p>
+                Minimalni zahtjevi su skromni, a WooCommerce je opcionalan — potreban je samo ako exportaš proizvode i narudžbe.
+            </p>
+
+            <ul class="feature-list">
+                <li><i class="fa-solid fa-check"></i> WordPress 5.8+</li>
+                <li><i class="fa-solid fa-check"></i> PHP 7.4+</li>
+                <li><i class="fa-solid fa-check"></i> WooCommerce 3.0+ (opcijski)</li>
+            </ul>
+        </div>
+
+        <div class="visual-box" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+            <div class="req-wrap" style="width: 100%; max-width: 560px;">
+                <div class="req-head">
+                    <strong><i class="fa-solid fa-list-check" style="color: var(--accent-green); margin-right: 8px;"></i> Requirements</strong>
+                    <span class="pill">Minimum</span>
+                </div>
+                <table class="req-table">
+                    <thead>
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Minimum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>WordPress</td>
+                            <td>5.8+</td>
+                        </tr>
+                        <tr>
+                            <td>PHP</td>
+                            <td>7.4+</td>
+                        </tr>
+                        <tr>
+                            <td>WooCommerce</td>
+                            <td>3.0+ (optional)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-box">
+    <h2>Spremni izvesti podatke u par klikova?</h2>
+    <p>
+        Pokreni “New Export”, odaberi Quick Preset ili složi custom wizard, spremi template i automatiziraj sve kroz Scheduling.
+        Ako želiš i import natrag u WordPress — Apex Import je kompatibilni companion.
+    </p>
+    <div style="display:flex; gap: 14px; justify-content:center; flex-wrap: wrap;">
+        <a class="btn-main btn-accent" href="#"><i class="fa-solid fa-download"></i> Preuzmi Apex Export</a>
+        <a class="btn-main" href="ApexImport%20-%20podstranica.html"><i class="fa-solid fa-rotate"></i> Pogledaj Apex Import</a>
+    </div>
+
+    <div style="margin-top: 26px; opacity: 0.7; font-weight: 700;">
+        Autor: <strong>Antonio</strong> · GPLv2 or later
+    </div>
+</section>
+
+<footer>
+    <div style="max-width: 1400px; margin: 0 auto;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; margin-bottom: 30px;">
+            <div>
+                <a href="../apexsolutionsv2.html" style="font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: white;"><i class="fa-solid fa-layer-group" style="color: var(--accent-green);"></i> APEX SOLUTIONS</a>
+                <p style="opacity: 0.7; font-size: 0.9rem; max-width: 300px;">Empowering WordPress developers with professional-grade tools.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 15px; font-weight: 800;">Products</h4>
+                <ul style="opacity: 0.7; font-size: 0.9rem; line-height: 2.2;">
+                    <li><a href="ApexBooking%20-%20podstranica.html" style="color: white;">Apex Booking</a></li>
+                    <li><a href="ApexExport%20-%20podstranica.html" style="color: white;">Apex Export</a></li>
+                    <li><a href="ApexImport%20-%20podstranica.html" style="color: white;">Apex Import</a></li>
+                    <li><a href="ApexLicence%20-%20podstranica.html" style="color: white;">Apex Licence</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; opacity: 0.5; font-size: 0.85rem;">&copy; 2026 Apex Solutions. Sva prava pridržana.</div>
+    </div>
+</footer>
+
+<script>
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    const nav = document.querySelector('.nav-links');
+    const icon = this.querySelector('i');
+    nav.classList.toggle('open');
+    icon.className = nav.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+});
+</script>
