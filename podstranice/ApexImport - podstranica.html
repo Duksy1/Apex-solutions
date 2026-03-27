@@ -483,7 +483,7 @@
             <div class="card-icon"><i class="fa-solid fa-file-csv"></i></div>
 <h3 class="card-title">Smart CSV Parser</h3>
             <p class="card-desc">
-                Auto-detect delimiter, UTF-8/BOM support, and configurable encoding.
+                Auto-detect delimiters and character encoding.
                 Works even with "quirky" CSVs from external systems.
             </p>
         </div>
@@ -520,7 +520,7 @@
             <h3 class="card-title">Import History</h3>
             <p class="card-desc">
                 Log of every import: file name, destination, date, record count, and status.
-                Stored in the <strong>apex_import_history</strong> table.
+                A complete log stored securely for easy review.
             </p>
         </div>
     </div>
@@ -611,7 +611,7 @@
             <p>
                 Apex Import is focused on safety and clarity: first you see a preview, then map columns,
                 enable <strong>Dry-Run</strong>, and only then confirm changes.
-                Everything runs in chunks (AJAX batch) so there are no timeouts even with thousands of rows.
+                Everything runs in manageable batches so there are no timeouts even with thousands of rows.
             </p>
 
             <ul class="feature-list">
@@ -642,7 +642,7 @@
                 <li><i class="fa-solid fa-check"></i> Match by: ID, slug, title, email, SKU…</li>
                 <li><i class="fa-solid fa-check"></i> Skip — ignores existing records</li>
                 <li><i class="fa-solid fa-check"></i> Update — overwrites existing with new data</li>
-                <li><i class="fa-solid fa-check"></i> Filter hook for custom duplicate logic</li>
+                <li><i class="fa-solid fa-check"></i> Extensible duplicate rules for advanced scenarios</li>
             </ul>
         </div>
 
@@ -699,7 +699,7 @@
     <div style="text-align: center; margin-bottom: 50px; position: relative; z-index: 2;">
         <h2 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 15px;">Stability on Large Imports</h2>
         <p style="opacity: 0.85; max-width: 780px; margin: 0 auto; line-height: 1.7;">
-            Import is chunked and AJAX-powered: no timeouts, with batch size control and clear result statistics.
+            Import runs in manageable batches: no timeouts, with adjustable batch size and clear result statistics.
             Ideal for migrations and continuous feeds.
         </p>
     </div>
@@ -726,19 +726,19 @@
         <div class="perf-card">
             <i class="fa-solid fa-clock-rotate-left perf-icon"></i>
             <div class="perf-title">Import History</div>
-            <div class="perf-desc">Clear log: file name, destination, date, processed, status. Table: apex_import_history.</div>
+            <div class="perf-desc">Clear log: file name, destination, date, records processed, and status.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-layer-group perf-icon"></i>
             <div class="perf-title">Saved Templates</div>
-            <div class="perf-desc">Save mapping configurations for recurring import feeds. CPT: apex_import_tpl.</div>
+            <div class="perf-desc">Save mapping configurations for recurring import feeds — load them with one click.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-link perf-icon"></i>
             <div class="perf-title">Apex Export Compatibility</div>
-            <div class="perf-desc">Seamless round-trip export → import: automatsko prepoznavanje kolona i field matching.</div>
+            <div class="perf-desc">Seamless round-trip: export from WordPress, then import back with automatic column recognition.</div>
         </div>
     </div>
 </section>

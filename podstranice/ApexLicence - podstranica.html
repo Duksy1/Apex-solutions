@@ -376,8 +376,8 @@
     <h1>Licensing Under Control.<br><span>Your Plugins. Your Rules.</span></h1>
 
     <p>
-        Centralized licensing system for WordPress plugins. Local token generation,
-        <strong>WooCommerce server-side validation</strong>, REST API endpoint, and scheduled checks via WP-Cron —
+        Centralized licensing system for WordPress plugins. Automatic license generation,
+        <strong>WooCommerce-powered validation</strong>, and scheduled checks —
         all in one plugin that every product of yours can use.
     </p>
 
@@ -392,12 +392,12 @@
             <span class="stat-label">Validation Mode</span>
         </div>
         <div class="stat-item">
-            <span class="stat-val">WP-Cron</span>
-            <span class="stat-label">Automated Checks</span>
+            <span class="stat-val">Automatic</span>
+            <span class="stat-label">Scheduled Checks</span>
         </div>
         <div class="stat-item">
-            <span class="stat-val">REST API</span>
-            <span class="stat-label">Server Endpoint</span>
+            <span class="stat-val">Built-in</span>
+            <span class="stat-label">Server Validation</span>
         </div>
         <div class="stat-item">
             <span class="stat-val">WooCommerce</span>
@@ -420,7 +420,7 @@
             <div class="card-icon"><i class="fa-solid fa-fingerprint"></i></div>
             <h3 class="card-title">Local Licenses</h3>
             <p class="card-desc">
-                Generate signed tokens tied to a domain and product directly from <strong>Tools → ApexLicence</strong>.
+                Generate license keys tied to a specific domain and product right from your <strong>WordPress dashboard</strong>.
                 No external server needed — full local control.
             </p>
         </div>
@@ -429,8 +429,8 @@
             <div class="card-icon"><i class="fa-brands fa-woocommerce"></i></div>
             <h3 class="card-title">WooCommerce Server</h3>
             <p class="card-desc">
-                Your WordPress shop becomes a licensing server. Automatic key generation on order completion,
-                stored in order meta, with REST API for validation.
+                Your WordPress shop becomes a licensing server. Automatic key generation when orders complete,
+                with built-in validation your plugins can use.
             </p>
         </div>
 
@@ -438,17 +438,17 @@
             <div class="card-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
             <h3 class="card-title">Scheduled Checks</h3>
             <p class="card-desc">
-                WP-Cron checks licenses once or twice daily. Status is stored in <strong>wp_options</strong>
-                so every plugin can instantly know if the license is active.
+                Licenses are verified automatically once or twice daily. Status is always available
+                so every plugin instantly knows if the license is active.
             </p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-plug"></i></div>
-            <h3 class="card-title">Hooks & Filters</h3>
+            <h3 class="card-title">Extension Points</h3>
             <p class="card-desc">
-                <strong>apexlicence_check_result</strong> filter for status customization and
-                <strong>apexlicence_after_check</strong> action that fires after each check.
+                Built-in extension points let you customize validation results and
+                trigger custom actions after each license check.
             </p>
         </div>
 
@@ -456,18 +456,17 @@
             <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
             <h3 class="card-title">Custom Validator</h3>
             <p class="card-desc">
-                Pass a <strong>validator_callback</strong> during registration and implement your own logic.
-                The callback receives payload and config, returns valid/message/expires_at.
+                Provide your own validation logic during setup. Your custom rules receive all the context
+                needed and return a simple pass/fail result with optional expiration.
             </p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-terminal"></i></div>
-            <h3 class="card-title">Helper Functions</h3>
+            <h3 class="card-title">Developer Tools</h3>
             <p class="card-desc">
-                <strong>apexlicence_is_valid()</strong>, <strong>apexlicence_get_status()</strong>,
-                <strong>apexlicence_check_now()</strong>, and <strong>apexlicence_unregister_plugin()</strong>
-                — all available globally.
+                Simple, well-documented helper functions for checking license validity,
+                retrieving status details, forcing a recheck, and cleanup — all available globally.
             </p>
         </div>
     </div>
@@ -478,20 +477,10 @@
     <div class="split-section">
         <div class="visual-box" style="background: linear-gradient(180deg, #0f2a24, #112520); border-color: rgba(255,255,255,0.12);">
             <div style="width: 100%; max-width: 520px;">
-                <div class="code-block">
-                    <span class="cmt">// Register your plugin</span><br>
-                    <span class="fn">add_action</span>(<span class="str">'init'</span>, <span class="kw">function</span> () {<br>
-                    &nbsp;&nbsp;<span class="fn">apexlicence_register_plugin</span>([<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'slug'</span> =&gt; <span class="str">'my-plugin'</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'name'</span> =&gt; <span class="str">'My Plugin'</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'license_key_option'</span> =&gt; <span class="str">'my_plugin_license_key'</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="str">'mode'</span> =&gt; <span class="str">'local'</span>,<br>
-                    &nbsp;&nbsp;]);<br>
-                    });<br><br>
-                    <span class="cmt">// Check anywhere</span><br>
-                    <span class="kw">if</span> ( <span class="fn">apexlicence_is_valid</span>(<span class="str">'my-plugin'</span>) ) {<br>
-                    &nbsp;&nbsp;<span class="cmt">// Pro features unlocked</span><br>
-                    }
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; padding: 30px; text-align: center;">
+                    <i class="fa-solid fa-plug" style="font-size: 4rem; margin-bottom: 20px; color: var(--accent-green);"></i>
+                    <h3 style="color: white; font-size: 1.4rem; font-weight: 900; margin-bottom: 12px;">Quick Integration</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7;">Register your plugin with a single call. ApexLicence handles all the complexity — checks, status storage, and validation.</p>
                 </div>
                 <div style="margin-top: 14px; display:flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
                     <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);">
@@ -512,15 +501,15 @@
             </p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> <strong>mode → local</strong>: token generation without a server</li>
-                <li><i class="fa-solid fa-check"></i> <strong>mode → remote</strong>: api_url for validation on your shop</li>
-                <li><i class="fa-solid fa-check"></i> <strong>check_interval</strong>: how often to validate (default 12h)</li>
-                <li><i class="fa-solid fa-check"></i> <strong>validator_callback</strong>: fully custom validation</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Local mode</strong>: generate licenses without any server</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Server mode</strong>: validate licenses through your WooCommerce shop</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Configurable frequency</strong>: choose how often to validate (default: every 12 hours)</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Custom validation</strong>: plug in your own rules</li>
             </ul>
 
             <div style="margin-top: 28px; display:flex; gap: 12px; flex-wrap: wrap;">
                 <a class="btn-main btn-accent" href="#woocommerce"><i class="fa-brands fa-woocommerce"></i> WooCommerce Mode</a>
-                <a class="btn-main" href="#performance"><i class="fa-solid fa-shield-halved"></i> Arhitektura</a>
+                <a class="btn-main" href="#performance"><i class="fa-solid fa-shield-halved"></i> Architecture</a>
             </div>
         </div>
     </div>
@@ -533,16 +522,15 @@
             <h2>Your Shop as a Licensing Server</h2>
             <p>
                 When a WooCommerce order completes, ApexLicence automatically generates a key and stores it on the order.
-                Client plugins send a request to your <strong>REST API endpoint</strong> for validation —
-                without any third party.
+                Client plugins validate directly against your shop — no third-party service needed.
             </p>
 
             <ul class="feature-list">
                 <li><i class="fa-solid fa-check"></i> Automatic key generation on order completion</li>
-                <li><i class="fa-solid fa-check"></i> REST endpoint: /wp-json/apexlicence/v1/check</li>
-                <li><i class="fa-solid fa-check"></i> Validation by license_key, domain, and product_id</li>
+                <li><i class="fa-solid fa-check"></i> Built-in validation endpoint for client plugins</li>
+                <li><i class="fa-solid fa-check"></i> Validates by license key, domain, and product</li>
                 <li><i class="fa-solid fa-check"></i> Optional expiration date per product</li>
-                <li><i class="fa-solid fa-check"></i> Keys available as order note and meta</li>
+                <li><i class="fa-solid fa-check"></i> Keys visible in the order details</li>
             </ul>
         </div>
 
@@ -551,25 +539,25 @@
                 <div class="mini-ui">
                     <div class="mini-ui-top">
                         <strong><i class="fa-brands fa-woocommerce" style="color: var(--accent-green); margin-right: 8px;"></i> License Server</strong>
-                        <span class="pill">REST API</span>
+                        <span class="pill">Auto-Validate</span>
                     </div>
                     <div class="mini-ui-body">
                         <div style="display:grid; gap: 10px;">
                             <div style="display:flex; justify-content:space-between; padding: 12px 14px; border:1px solid #eef2f7; border-radius: 14px;">
-                                <span style="font-weight:900;">Product Meta</span>
-                                <span class="muted" style="font-weight:800;">_apexlicence_product_slug</span>
+                                <span style="font-weight:900;">Product</span>
+                                <span class="muted" style="font-weight:800;">Linked Plugin Name</span>
                             </div>
                             <div style="display:flex; justify-content:space-between; padding: 12px 14px; border:1px solid #eef2f7; border-radius: 14px;">
                                 <span style="font-weight:900;">Expiration</span>
-                                <span class="muted" style="font-weight:800;">_apexlicence_expires_at</span>
+                                <span class="muted" style="font-weight:800;">Auto-calculated from settings</span>
                             </div>
                             <div style="display:flex; justify-content:space-between; padding: 12px 14px; border:1px solid #eef2f7; border-radius: 14px;">
-                                <span style="font-weight:900;">Order Keys</span>
-                                <span class="muted" style="font-weight:800;">_apexlicence_license_keys</span>
+                                <span style="font-weight:900;">License Keys</span>
+                                <span class="muted" style="font-weight:800;">Generated automatically</span>
                             </div>
                             <div style="display:flex; justify-content:space-between; padding: 12px 14px; border:1px solid #eef2f7; border-radius: 14px;">
-                                <span style="font-weight:900;">API Check</span>
-                                <span class="muted" style="font-weight:800;">license_key + domain</span>
+                                <span style="font-weight:900;">Validation</span>
+                                <span class="muted" style="font-weight:800;">Key + Domain check</span>
                             </div>
                         </div>
 
@@ -594,36 +582,36 @@
         <div class="visual-box" style="background: #1a3c34; border-color: rgba(255,255,255,0.12);">
             <div style="text-align: center; color: white; max-width: 520px;">
                 <i class="fa-solid fa-toolbox" style="font-size: 5rem; margin-bottom: 26px; color: var(--accent-green);"></i>
-                <h3 style="font-size: 1.6rem; font-weight: 900;">Helper API</h3>
+                <h3 style="font-size: 1.6rem; font-weight: 900;">Built-in Tools</h3>
                 <p style="opacity: 0.75; margin-top: 10px; line-height: 1.7;">
-                    Globally available functions for checking, retrieving status, and managing plugins.
+                    Everything you need for checking, retrieving status, and managing plugin licenses.
                 </p>
                 <div style="margin-top: 20px; display:flex; gap: 10px; justify-content:center; flex-wrap: wrap;">
                     <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);">
-                        <i class="fa-solid fa-circle-check" style="margin-right:6px;"></i> is_valid()
+                        <i class="fa-solid fa-circle-check" style="margin-right:6px;"></i> Check License
                     </span>
                     <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);">
-                        <i class="fa-solid fa-magnifying-glass" style="margin-right:6px;"></i> get_status()
+                        <i class="fa-solid fa-magnifying-glass" style="margin-right:6px;"></i> Get Details
                     </span>
                     <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);">
-                        <i class="fa-solid fa-rotate" style="margin-right:6px;"></i> check_now()
+                        <i class="fa-solid fa-rotate" style="margin-right:6px;"></i> Force Check
                     </span>
                 </div>
             </div>
         </div>
 
         <div class="split-text">
-            <h2>Simple API for Developers</h2>
+            <h2>Simple Tools for Developers</h2>
             <p>
-                Four helper functions cover all scenarios — from a quick check in an <code>if</code> statement
+                Four helper functions cover all scenarios — from a quick validity check
                 to forced revalidation and deregistration. Every plugin accesses the same mechanism.
             </p>
 
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> <strong>apexlicence_is_valid($slug)</strong> → true/false</li>
-                <li><i class="fa-solid fa-check"></i> <strong>apexlicence_get_status($slug)</strong> → full status array</li>
-                <li><i class="fa-solid fa-check"></i> <strong>apexlicence_check_now($slug)</strong> → force recheck</li>
-                <li><i class="fa-solid fa-check"></i> <strong>apexlicence_unregister_plugin($slug)</strong> → cleanup</li>
+                <li><i class="fa-solid fa-check"></i> Check if a license is valid — returns a simple yes/no</li>
+                <li><i class="fa-solid fa-check"></i> Get full license details — expiration, domain, and status</li>
+                <li><i class="fa-solid fa-check"></i> Force an immediate license recheck</li>
+                <li><i class="fa-solid fa-check"></i> Cleanly remove a plugin from the licensing system</li>
             </ul>
         </div>
     </div>
@@ -643,13 +631,13 @@
         <div class="perf-card">
             <i class="fa-solid fa-signature perf-icon"></i>
             <div class="perf-title">Signed Tokens</div>
-            <div class="perf-desc">Local licenses use a secret key (apexlicence_secret) for signing. The token is tied to domain and slug.</div>
+            <div class="perf-desc">Local licenses are cryptographically signed and tied to a specific domain. Tamper-proof and secure.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-clock perf-icon"></i>
             <div class="perf-title">Scheduled Checks</div>
-            <div class="perf-desc">WP-Cron checks every 12 or 24 hours. No blocking of user requests — everything runs in the background.</div>
+            <div class="perf-desc">Automatic checks every 12 or 24 hours. No blocking of user requests — everything runs in the background.</div>
         </div>
 
         <div class="perf-card">
@@ -661,19 +649,19 @@
         <div class="perf-card">
             <i class="fa-solid fa-database perf-icon"></i>
             <div class="perf-title">Lightweight Footprint</div>
-            <div class="perf-desc">Only 3 wp_options records: registered plugins, statuses, and signing key. No custom tables.</div>
+            <div class="perf-desc">Minimal database usage — stores only what’s needed. No custom tables, no bloat.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-plug perf-icon"></i>
-            <div class="perf-title">Hooks for Extension</div>
-            <div class="perf-desc">apexlicence_check_result filter and apexlicence_after_check action — adapt behavior for edge cases.</div>
+            <div class="perf-title">Extension Points</div>
+            <div class="perf-desc">Built-in extension points let you customize behavior for special cases and edge scenarios.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-shield-halved perf-icon"></i>
-            <div class="perf-title">REST API Endpoint</div>
-            <div class="perf-desc">/wp-json/apexlicence/v1/check accepts license_key, domain, and product_id. Standard WordPress REST registration.</div>
+            <div class="perf-title">Validation Endpoint</div>
+            <div class="perf-desc">A secure validation endpoint that client plugins use to check licenses against your shop. Follows WordPress standards.</div>
         </div>
     </div>
 </section>
@@ -698,28 +686,28 @@
         <div class="visual-box" style="background: transparent; border: none; box-shadow: none; padding: 0;">
             <div class="req-wrap" style="width: 100%; max-width: 560px;">
                 <div class="req-head">
-                    <strong><i class="fa-solid fa-list-check" style="color: var(--accent-green); margin-right: 8px;"></i> Data Stored</strong>
-                    <span class="pill">wp_options</span>
+                    <strong><i class="fa-solid fa-list-check" style="color: var(--accent-green); margin-right: 8px;"></i> What’s Included</strong>
+                    <span class="pill">Lightweight</span>
                 </div>
                 <table class="req-table">
                     <thead>
                         <tr>
-                            <th>Option Key</th>
-                            <th>Purpose</th>
+                            <th>Feature</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>apexlicence_registered_plugins</td>
-                            <td>Plugin configs</td>
+                            <td>Plugin Registry</td>
+                            <td>All registered plugins</td>
                         </tr>
                         <tr>
-                            <td>apexlicence_statuses</td>
-                            <td>Check results</td>
+                            <td>License Status</td>
+                            <td>Current validation results</td>
                         </tr>
                         <tr>
-                            <td>apexlicence_secret</td>
-                            <td>Signing key</td>
+                            <td>Security Key</td>
+                            <td>Cryptographic signing</td>
                         </tr>
                     </tbody>
                 </table>

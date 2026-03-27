@@ -352,7 +352,7 @@
     <p>
         Manage <strong>banners, video, AdSense, parallax, popups, sticky bars, slide-ins & countdown timers</strong> from one place.
         Built-in impression and click tracking, analytics dashboard with CSV export, shortcodes, widgets,
-        <strong>Gutenberg block</strong>, and <strong>REST API</strong> — all nonce-protected and rate-limited.
+        <strong>Gutenberg block</strong>, and <strong>flexible display options</strong> — all secured and performance-optimized.
     </p>
 
     <div class="hero-actions">
@@ -370,11 +370,11 @@
             <span class="stat-label">Click Tracking</span>
         </div>
         <div class="stat-item">
-            <span class="stat-val">REST API</span>
-            <span class="stat-label">Headless Ready</span>
+            <span class="stat-val">Flexible</span>
+            <span class="stat-label">Any Setup</span>
         </div>
         <div class="stat-item">
-            <span class="stat-val">Chart.js</span>
+            <span class="stat-val">Interactive</span>
             <span class="stat-label">Analytics Dashboard</span>
         </div>
     </div>
@@ -409,13 +409,13 @@
         <div class="feature-card">
             <div class="card-icon"><i class="fa-solid fa-video"></i></div>
             <h3 class="card-title">Video Embeds</h3>
-            <p class="card-desc">YouTube, Vimeo, or custom video URLs rendered in sandboxed iframes with <code>allow-scripts allow-same-origin allow-popups</code> and no-referrer policy.</p>
+            <p class="card-desc">YouTube, Vimeo, or custom video URLs displayed in secure, isolated frames for maximum safety and privacy.</p>
         </div>
 
         <div class="feature-card">
             <div class="card-icon"><i class="fa-brands fa-google"></i></div>
             <h3 class="card-title">Google AdSense</h3>
-            <p class="card-desc">Enter your publisher ID and slot ID — the plugin generates the correct AdSense markup. Slot IDs are regex-sanitized for XSS protection.</p>
+            <p class="card-desc">Enter your publisher ID and slot ID — the plugin generates the correct AdSense markup. IDs are automatically validated for security.</p>
         </div>
 
         <div class="feature-card">
@@ -485,7 +485,7 @@
                         </div>
                     </div>
                     <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
-                        <span class="pill"><i class="fa-solid fa-chart-bar" style="margin-right: 4px;"></i> Chart.js Graphs</span>
+                        <span class="pill"><i class="fa-solid fa-chart-bar" style="margin-right: 4px;"></i> Interactive Graphs</span>
                         <span class="pill"><i class="fa-solid fa-file-csv" style="margin-right: 4px;"></i> CSV Export</span>
                     </div>
                 </div>
@@ -494,13 +494,13 @@
 
         <div class="split-text">
             <h2>Know Exactly What Works</h2>
-            <p>Built-in analytics dashboard with Chart.js graphs showing impressions and clicks over time. Per-ad breakdown table with CTR calculations and one-click CSV export — all CSRF-protected.</p>
+            <p>Built-in analytics dashboard with interactive graphs showing impressions and clicks over time. Per-ad breakdown table with CTR calculations and one-click CSV export — fully secured.</p>
             <ul class="feature-list">
                 <li><i class="fa-solid fa-check"></i> Impressions & clicks tracked automatically on render</li>
                 <li><i class="fa-solid fa-check"></i> Chart.js time-series graphs for visual trends</li>
                 <li><i class="fa-solid fa-check"></i> Per-ad table: name, group, impressions, clicks, CTR</li>
-                <li><i class="fa-solid fa-check"></i> CSV export with <code>check_admin_referer()</code> CSRF protection</li>
-                <li><i class="fa-solid fa-check"></i> Batch term cache priming — no N+1 queries</li>
+                <li><i class="fa-solid fa-check"></i> Secure CSV export with built-in protection</li>
+                <li><i class="fa-solid fa-check"></i> Optimized for speed — even with hundreds of ads</li>
             </ul>
             <div style="margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;">
                 <a class="btn-main btn-accent" href="#display"><i class="fa-solid fa-display"></i> Display Options</a>
@@ -514,13 +514,13 @@
     <div class="split-section">
         <div class="split-text">
             <h2>Display Ads Anywhere</h2>
-            <p>Shortcodes, widgets, Gutenberg blocks, PHP helpers, and REST API endpoints — choose the method that fits your workflow. Individual ads or entire groups with configurable limits.</p>
+            <p>Shortcodes, widgets, and Gutenberg blocks — choose the method that fits your workflow. Display individual ads or entire groups with configurable limits.</p>
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> <code>[smart_ad id="123" class="hero-banner"]</code></li>
-                <li><i class="fa-solid fa-check"></i> <code>[smart_ad_group group="sidebar" limit="2"]</code></li>
+                <li><i class="fa-solid fa-check"></i> Place any ad on any page with a simple shortcode</li>
+                <li><i class="fa-solid fa-check"></i> Display ad groups with optional limits</li>
                 <li><i class="fa-solid fa-check"></i> Widget: Apex Ad — select ad by ID in any sidebar</li>
                 <li><i class="fa-solid fa-check"></i> Gutenberg block with ad selector dropdown</li>
-                <li><i class="fa-solid fa-check"></i> PHP: <code>sam()->service('renderer')->render($id)</code></li>
+                <li><i class="fa-solid fa-check"></i> Developer-friendly integration for custom themes</li>
             </ul>
         </div>
 
@@ -561,7 +561,7 @@
                 <i class="fa-solid fa-arrows-up-down" style="font-size: 5rem; margin-bottom: 26px; color: var(--accent-green);"></i>
                 <h3 style="font-size: 1.6rem; font-weight: 900;">Immersive Ad Formats</h3>
                 <p style="color: rgba(255,255,255,0.75); margin-top: 10px; line-height: 1.7;">
-                    Parallax backgrounds with configurable <code style="color: var(--accent-green);">data-speed</code> and interscroller creatives with IntersectionObserver-triggered CTAs.
+                    Parallax backgrounds with configurable scroll speed and interscroller creatives with viewport-triggered CTAs.
                 </p>
                 <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                     <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);"><i class="fa-solid fa-mountain-sun" style="margin-right: 6px;"></i> Parallax</span>
@@ -573,13 +573,13 @@
 
         <div class="split-text">
             <h2>Beyond Standard Banners</h2>
-            <p>Parallax ads use configurable <code>data-speed</code> (0.05–1) for subtle or dramatic scroll effects. Interscroller ads stick between content sections and reveal CTA buttons when triggered by IntersectionObserver.</p>
+            <p>Parallax ads use adjustable scroll speed for subtle or dramatic effects. Interscroller ads stick between content sections and reveal CTA buttons as visitors scroll them into view.</p>
             <ul class="feature-list">
                 <li><i class="fa-solid fa-check"></i> Parallax: configurable height, speed, and background image</li>
                 <li><i class="fa-solid fa-check"></i> Interscroller: sticky creative with viewport-triggered CTA</li>
                 <li><i class="fa-solid fa-check"></i> Scripts loaded conditionally — only on pages with these ads</li>
                 <li><i class="fa-solid fa-check"></i> Lower speed values = more subtle, cinematic effect</li>
-                <li><i class="fa-solid fa-check"></i> IntersectionObserver for battery-efficient viewport detection</li>
+                <li><i class="fa-solid fa-check"></i> Battery-efficient scroll detection for mobile devices</li>
             </ul>
         </div>
     </div>
@@ -596,7 +596,7 @@
                 <li><i class="fa-solid fa-check"></i> Frequency cap: every visit, once/session, once/day, once ever</li>
                 <li><i class="fa-solid fa-check"></i> Image banner + link and/or custom HTML content</li>
                 <li><i class="fa-solid fa-check"></i> Optional dark overlay behind the modal</li>
-                <li><i class="fa-solid fa-check"></i> Cookie/localStorage-based frequency persistence</li>
+                <li><i class="fa-solid fa-check"></i> Smart frequency memory ensures users see each popup only as often as you allow</li>
             </ul>
         </div>
 
@@ -752,29 +752,25 @@
 <section class="section-padding">
     <div class="split-section" style="margin-bottom: 0;">
         <div class="split-text">
-            <h2>REST API for Headless Sites</h2>
-            <p>Fetch rendered ad HTML via REST endpoints for headless WordPress, SPAs, or AJAX-based layouts. Input is validated, sanitized, and group slugs are regex-restricted.</p>
+            <h2>Works With Any Setup</h2>
+            <p>Display ads on any type of site — headless WordPress, single-page apps, or traditional layouts. All input is validated and secured automatically.</p>
             <ul class="feature-list">
-                <li><i class="fa-solid fa-check"></i> <code>/wp-json/sam/v1/ads/&lt;id&gt;</code> — single ad HTML</li>
-                <li><i class="fa-solid fa-check"></i> <code>/wp-json/sam/v1/groups/&lt;slug&gt;</code> — group ads</li>
-                <li><i class="fa-solid fa-check"></i> ID params: <code>validate_callback</code> + <code>sanitize_callback</code></li>
-                <li><i class="fa-solid fa-check"></i> Group slug regex: <code>[a-zA-Z0-9\-_,]+</code>, max 10 per request</li>
-                <li><i class="fa-solid fa-check"></i> Returns pre-rendered HTML ready for AJAX injection</li>
+                <li><i class="fa-solid fa-check"></i> Fetch any ad by its ID for dynamic placement</li>
+                <li><i class="fa-solid fa-check"></i> Load entire ad groups at once for complex layouts</li>
+                <li><i class="fa-solid fa-check"></i> All inputs are automatically validated and secured</li>
+                <li><i class="fa-solid fa-check"></i> Smart limits prevent abuse — up to 10 ads per request</li>
+                <li><i class="fa-solid fa-check"></i> Returns ready-to-display content for instant placement</li>
             </ul>
         </div>
 
         <div class="visual-box" style="background: #111827; border-color: rgba(255,255,255,0.08);">
-            <div style="width: 85%; max-width: 480px;">
-                <div class="code-block">
-                    <span class="cmt">// Fetch single ad via REST</span><br>
-                    <span class="kw">fetch</span>( <span class="str">'/wp-json/sam/v1/ads/42'</span> )<br>
-                    &nbsp;&nbsp;.<span class="fn">then</span>( r =&gt; r.<span class="fn">json</span>() )<br>
-                    &nbsp;&nbsp;.<span class="fn">then</span>( data =&gt; {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;container.<span class="fn">innerHTML</span> = data.html;<br>
-                    &nbsp;&nbsp;});<br><br>
-                    <span class="cmt">// PHP helper</span><br>
-                    <span class="kw">echo</span> <span class="fn">sam</span>()-&gt;<span class="fn">service</span>(<span class="str">'renderer'</span>)<br>
-                    &nbsp;&nbsp;-&gt;<span class="fn">render</span>( <span class="str">42</span> );
+            <div style="text-align: center; color: white; max-width: 420px;">
+                <i class="fa-solid fa-puzzle-piece" style="font-size: 4rem; margin-bottom: 22px; color: var(--accent-green);"></i>
+                <h3 style="font-size: 1.5rem; font-weight: 900;">Universal Compatibility</h3>
+                <p style="color: rgba(255,255,255,0.7); margin-top: 10px; line-height: 1.7;">Works with any WordPress theme, page builder, or headless setup. Place ads anywhere with zero configuration.</p>
+                <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);"><i class="fa-solid fa-globe" style="margin-right: 6px;"></i> Any Theme</span>
+                    <span class="pill" style="background: rgba(255,255,255,0.08); color: white; border-color: rgba(255,255,255,0.15);"><i class="fa-solid fa-server" style="margin-right: 6px;"></i> Any Setup</span>
                 </div>
             </div>
         </div>
@@ -791,38 +787,38 @@
     <div class="perf-grid">
         <div class="perf-card">
             <i class="fa-solid fa-fingerprint perf-icon"></i>
-            <div class="perf-title">Nonce-Protected Clicks</div>
-            <div class="perf-desc">Every tracking URL contains a WordPress nonce verified before registering a click. Prevents forged click requests and bot inflation.</div>
+            <div class="perf-title">Click Verification</div>
+            <div class="perf-desc">Every click is cryptographically verified before being counted. Prevents fake clicks and bot traffic from inflating your stats.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-clock perf-icon"></i>
-            <div class="perf-title">Rate Limiting</div>
-            <div class="perf-desc">Transient-based IP throttling — max 1 click per ad per IP per minute. Blocks click fraud without external dependencies.</div>
+            <div class="perf-title">Fraud Protection</div>
+            <div class="perf-desc">Built-in click fraud protection — limits one click per visitor per ad per minute. No external services needed.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-shield-halved perf-icon"></i>
-            <div class="perf-title">XSS & CSRF Protection</div>
-            <div class="perf-desc">CSS classes through <code style="color: var(--accent-green);">sanitize_html_class()</code>, AdSense slots regex-sanitized, CSV export with <code style="color: var(--accent-green);">check_admin_referer()</code>.</div>
+            <div class="perf-title">Input Security</div>
+            <div class="perf-desc">All user inputs are automatically validated and cleaned. Every admin action is verified to prevent unauthorized changes.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-video perf-icon"></i>
-            <div class="perf-title">Iframe Sandboxing</div>
-            <div class="perf-desc">Video embeds use <code style="color: var(--accent-green);">sandbox="allow-scripts allow-same-origin allow-popups"</code> with <code style="color: var(--accent-green);">referrerpolicy="no-referrer"</code>.</div>
+            <div class="perf-title">Video Security</div>
+            <div class="perf-desc">Video embeds run in isolated, secure containers. No data leaks, no unwanted tracking — maximum privacy for your visitors.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-database perf-icon"></i>
-            <div class="perf-title">Optimized Queries</div>
-            <div class="perf-desc">Dedicated <code style="color: var(--accent-green);">_sam_auto_insert</code> meta key for auto-insert lookups — no LIKE on serialized data. Max 50 ads per query.</div>
+            <div class="perf-title">Fast Performance</div>
+            <div class="perf-desc">Optimized database queries ensure fast page loads even with many active ads. Smart limits keep everything responsive.</div>
         </div>
 
         <div class="perf-card">
             <i class="fa-solid fa-network-wired perf-icon"></i>
-            <div class="perf-title">REMOTE_ADDR Only</div>
-            <div class="perf-desc">Client IP read exclusively from REMOTE_ADDR — no insecure X-Forwarded-For headers. Reliable rate limiting you can trust.</div>
+            <div class="perf-title">Reliable Tracking</div>
+            <div class="perf-desc">Accurate visitor identification ensures reliable fraud protection and analytics you can trust.</div>
         </div>
     </div>
 </section>
